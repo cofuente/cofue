@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ParallaxHover from 'react-parallax-hover-with-borders'
 import { GithubIcon, LinkedinIcon, ResumeIcon } from './Icons'
 import card from './card.jpg'
+import cwd from './cwd.pdf'
 
 const openLinkedIn = () => {
 	window.open('https://www.linkedin.com/in/cofuente/')
@@ -51,7 +52,7 @@ export default class ParallaxCard extends Component {
 								<a
 									className="link_button"
 									onClick={() =>
-										downloadResume('cwd.pdf', 'chiaramarcialmartínez.pdf')
+										downloadResume(cwd, 'chiaramarcialmartínez.pdf')
 									}
 									aria-label={`Download my Résumé`}
 								>
