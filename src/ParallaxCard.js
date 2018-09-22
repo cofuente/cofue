@@ -24,7 +24,11 @@ export default class ParallaxCard extends Component {
 		return (
 			<div id="main">
 				<ParallaxHover width={700} height={400}>
-					<img ref="image" src={card} />
+					<img
+						ref="image"
+						alt="You got it. Now you can click on the icons to learn more about me."
+						src={card}
+					/>
 					<div ref="text">
 						<div className="wrapper">
 							<h1 className="full_name">
