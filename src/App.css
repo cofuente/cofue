@@ -138,8 +138,8 @@ body {
 	opacity: 0;
 	-webkit-animation: type2 1s steps(40, end);
 	animation: type2 1s steps(40, end);
-	-webkit-animation-delay: 2s;
-	animation-delay: 2s;
+	-webkit-animation-delay: 0.1s;
+	animation-delay: 0.1s;
 	-webkit-animation-fill-mode: forwards;
 	animation-fill-mode: forwards;
 }
@@ -148,8 +148,8 @@ body {
 	opacity: 0;
 	-webkit-animation: type2 1s steps(40, end);
 	animation: type2 1s steps(40, end);
-	-webkit-animation-delay: 3s;
-	animation-delay: 3s;
+	-webkit-animation-delay: 1s;
+	animation-delay: 1s;
 	-webkit-animation-fill-mode: forwards;
 	animation-fill-mode: forwards;
 }
@@ -158,8 +158,8 @@ body {
 	opacity: 0;
 	-webkit-animation: type2 2s steps(40, end);
 	animation: type2 2s steps(40, end);
-	-webkit-animation-delay: 5.5s;
-	animation-delay: 5.5s;
+	-webkit-animation-delay: 3.5s;
+	animation-delay: 3.5s;
 	-webkit-animation-fill-mode: forwards;
 	animation-fill-mode: forwards;
 }
@@ -168,8 +168,8 @@ body {
 	opacity: 0;
 	-webkit-animation: type2 1s steps(40, end);
 	animation: type2 1s steps(40, end);
-	-webkit-animation-delay: 9s;
-	animation-delay: 9s;
+	-webkit-animation-delay: 7s;
+	animation-delay: 7s;
 	-webkit-animation-fill-mode: forwards;
 	animation-fill-mode: forwards;
 }
@@ -179,8 +179,8 @@ body {
 	-webkit-animation: type3 2s steps(20, end),
 		blink 0.5s step-end infinite alternate;
 	animation: type3 2s steps(20, end), blink 0.5s step-end infinite alternate;
-	-webkit-animation-delay: 11s;
-	animation-delay: 11s;
+	-webkit-animation-delay: 9s;
+	animation-delay: 9s;
 	-webkit-animation-fill-mode: forwards;
 	animation-fill-mode: forwards;
 	margin-bottom: 6rem;
