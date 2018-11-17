@@ -9,7 +9,7 @@ html {
 	-webkit-animation: color-change-3x 4s linear infinite alternate both;
 	animation: color-change-3x 4s linear infinite alternate both;
 	font-size: 1em;
-	background-color: transparent !important;
+	background-color: transparent !important
 }
 @-webkit-keyframes color-change-3x {
 	0% {
@@ -186,29 +186,7 @@ body {
 	animation-fill-mode: forwards;
 	margin-bottom: 6rem;
 }
-/* Not actually using type1 but if ever need be it's here */
-/* @keyframes type {
-	0% {
-		width: 0;
-	}
-	99.9% {
-		border-right: 0.15em solid orange;
-	}
-	100% {
-		border: none;
-	}
-}
-@-webkit-keyframes type {
-	0% {
-		width: 0;
-	}
-	99.9% {
-		border-right: 0.15em solid orange;
-	}
-	100% {
-		border: none;
-	}
-} */
+
 @keyframes type2 {
 	0% {
 		width: 0;
