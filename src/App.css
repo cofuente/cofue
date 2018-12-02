@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Bungee+Hairline|Comfortaa:700|Libre+Baskerville:700');
 
+html {
+	-webkit-animation: color-change-3x 4s linear infinite alternate both;
+	animation: color-change-3x 4s linear infinite alternate both;
+	font-size: 10px;
+	background-color: transparent !important
+}
+
 * {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -27,12 +34,6 @@
 		background: #dbd7d2;
 	}
 }
-html {
-	-webkit-animation: color-change-3x 4s linear infinite alternate both;
-	animation: color-change-3x 4s linear infinite alternate both;
-	font-size: 10px;
-	background-color: transparent !important
-}
 
 body {
 	font-family: 'Comfortaa', cursive;
@@ -41,6 +42,9 @@ body {
 }
 
 #root { /* where all react is rendered out */
+	display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #super { /* direct parent of intro and main */
