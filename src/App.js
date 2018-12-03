@@ -14,6 +14,7 @@ class App extends Component {
 					<h1> -Go on, take it.</h1>
 				</div>
 				<ParallaxCard />
+				<div id="rotate-device" />
 			</div>
 		)
 	}

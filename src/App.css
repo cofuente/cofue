@@ -1,149 +1,228 @@
 @import url('https://fonts.googleapis.com/css?family=Bungee+Hairline|Comfortaa:700|Libre+Baskerville:700');
 
+* {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	box-sizing: border-box;
+}
+
 html {
 	-webkit-animation: color-change-3x 4s linear infinite alternate both;
 	animation: color-change-3x 4s linear infinite alternate both;
 	font-size: 10px;
-	background-color: transparent !important
-}
-
-* {
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
-@-webkit-keyframes color-change-3x {
-	0% {
-		background: #8fbc8f;
-	}
-	50% {
-		background: #74a7c6;
-	}
-	100% {
-		background: #dbd7d2;
-	}
-}
-@keyframes color-change-3x {
-	0% {
-		background: #8fbc8f;
-	}
-	50% {
-		background: #74a7c6;
-	}
-	100% {
-		background: #dbd7d2;
-	}
+	background-color: transparent !important;
+	width: 100%;
+	height:100%;
+	margin: 0;
+	padding: 0;
 }
 
 body {
 	font-family: 'Comfortaa', cursive;
-	margin: 0 auto;
+	margin: 0;
 	padding: 0;
+	width: 100%;
+	height:100%;
 }
 
-#root { /* where all react is rendered out */
-	display: flex;
-    flex-direction: column;
-    align-items: center;
+#root {
+	/* where all react is rendered out */
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height:100%;
+    overflow: hidden;
+    position:fixed;
 }
 
-#super { /* direct parent of intro and main */
+#super {
+	/* direct parent of intro and main */
 	display: flex;
 	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+	padding: 5%;
+	width: 100%;
+	height:100%;
 }
 
-#intro { /* holds the intro message h1's */
+#intro {
+	/* holds the intro message h1's */
 	display: flex;
 	flex-direction: column;
-	padding: 1vh;
+	align-items: center;
+	padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 2.5vh;
+    padding-left: 0;
+	margin: 0;
 }
 
-#main { /* holds the card */
-	padding: 1vh;
+#main {
+	/* holds the card */
+	padding-top: 2.5vh;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+	margin: 0;
+	-webkit-animation: bounce-in-bottom 1.1s both;
+	animation: bounce-in-bottom 1.1s both;
+	-webkit-animation-delay: 7.2s;
+	animation-delay: 7.2s;
+}
+#phone-rotate {
+	display: none;
+	padding: 0;
+	margin: 0;
 }
 
-/* @media (min-width: 300px) and (orientation: portrait) {
-	#app {
-		position: relative;
-		width: 100%;
-		height: 100%;
-		top: calc(50vh - 400px);
-		left: calc(50vw - 400px);
-	}
-	#mobile-only {
-		display: none;
-	}
-}
-@media (min-height: 300px) and (orientation: landscape) {
-	#app {
-		position: relative;
-		width: 100%;
-		height: 100%;
-		top: calc(50vh - 400px);
-		left: calc(50vw - 400px);
-	}
-	#mobile-only {
-		display: none;
-	}
+/* ---------------------- Media Q's ---------------------- */
+@media screen and (max-width: 175px) {
+	/* No matter the orientation, the screen is simply not big enough to handle even the resized card, figure out as low as the width can go and still be clickable/visible to set it here */
+	/* display a div saying: "I'm sorry your device is screen is too small to view this page" */
 }
 
-@media (max-width: 299px) and (orientation: portrait) {
-	#app {
-		position: relative;
+@media screen and (max-height: 100px) {
+	/* No matter the orientation, the screen is simply not big enough to handle even the resized card, figure out as low as the height can go and still be clickable/visible to set it here */
+	/* display a div saying: "I'm sorry your device is screen is too small to view this page" */
+}
+
+@media screen and (max-height: 702px) and (orientation:portrait) {
+	/* Find out what's the minimum width and height for landscape orientation of just the card, take the landscape haight and make it the width here */
+
+	/* display a "rotate your phone" div */
+	#phone-rotate{
+		background-color: coral;
+		padding:5%;
+		width: 30px;
+		height: 30px;
 	}
-	.css-typing h1:nth-child(1) {
+
+	#intro {
 		display: none;
-	}
-	.css-typing h1:nth-child(2) {
-		display: none;
-	}
-	.css-typing h1:nth-child(3) {
-		display: none;
-	}
-	.css-typing h1:nth-child(4) {
-		display: none;
-	}
-	.css-typing h1:nth-child(5) {
-		display: none;
+		padding-bottom:0;
 	}
 	#main {
-		display: none;
-	}
-	#mobile-only {
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		display:none;
+		padding-top: 0;
+		-webkit-animation-delay: 0s;
+		animation-delay: 0s;
 	}
 }
 
-@media (max-height: 299px) and (orientation: landscape) {
-	#app {
-		position: relative;
+@media screen and (max-width: 702px) and (orientation:landscape) {
+	/* corresponds to above*/
+	/* remove the "rotate your phone" div */
+	#phone-rotate{
+		display:none;
+		padding: 0;
+		margin: 0;
 	}
-	.css-typing h1:nth-child(1) {
+	#intro {
 		display: none;
-	}
-	.css-typing h1:nth-child(2) {
-		display: none;
-	}
-	.css-typing h1:nth-child(3) {
-		display: none;
-	}
-	.css-typing h1:nth-child(4) {
-		display: none;
-	}
-	.css-typing h1:nth-child(5) {
-		display: none;
+		padding-bottom:0;
 	}
 	#main {
+		padding-top: 0;
+		-webkit-animation-delay: 0s;
+		animation-delay: 0s;
+	}
+}
+
+@media screen and (max-height: 629px) {
+	/* No matter the orientation, the intro text simply does not look good without a min height of 630px */
+	#intro {
 		display: none;
+		padding-bottom:0;
 	}
-	#mobile-only {
-		display: flex;
-		justify-content: center;
-		align-items: center;
+	#main {
+		padding-top: 0;
+		-webkit-animation-delay: 0s;
+		animation-delay: 0s;
 	}
-} */
+}
+
+/* -------------------------------------------- */
+
+.wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	height: calc(100% - 3.75rem);
+	justify-content: center;
+	padding: 1.875rem;
+	width: calc(100% - 3.75rem);
+}
+
+img {
+	border-radius: 0.75rem;
+	max-width: 100%;
+	height: auto;
+}
+
+.full_name,
+.title,
+.email {
+	flex-basis: 100%;
+	margin-top: 0;
+	text-align: center;
+}
+
+.full_name {
+	font-family: 'Libre Baskerville', serif;
+	font-size: 4rem;
+	line-height: 1.3em;
+	margin-bottom: 1.25rem;
+	margin-top: 1.5rem;
+}
+
+.title {
+	font-size: 3.5rem;
+	letter-spacing: 0.05rem;
+}
+
+.email {
+	font-size: 2rem;
+	letter-spacing: 0.313rem;
+}
+
+.email > a {
+	text-transform: uppercase;
+	text-decoration: none;
+	color: rgb(255, 255, 255);
+}
+
+.link_buttons {
+	display: flex;
+	flex-basis: 75%;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.link_button {
+	align-items: center;
+	cursor: pointer;
+	display: flex;
+	font-size: 2rem;
+	margin: 1rem 0.7rem;
+	color: rgb(255, 255, 255);
+}
+
+.ph-shadow {
+	border: 0rem;
+}
+
+.ph-lighting {
+	border-radius: 0.75rem;
+}
+
+.ph-layers div:nth-child(2) {
+	z-index: 1;
+}
+
+
+
+/* ---------------------- Typing Effect ---------------------- */
 
 .css-typing h1 {
 	border-right: 0.15rem solid orange;
@@ -154,12 +233,12 @@ body {
 	overflow: hidden;
 }
 .css-typing h1:nth-child(1) {
-	width: 10.1em;  /* all of these width properties are required for the 'typing' animation to work */
+	width: 10.3em; /* all of these width properties are required for the 'typing' animation to work */
 	opacity: 0;
 	-webkit-animation: type2 1s steps(40, end);
 	animation: type2 1s steps(40, end);
-	-webkit-animation-delay: 0.2s;
-	animation-delay: 0.2s;
+	-webkit-animation-delay: 0.1s;
+	animation-delay: 0.1s;
 	-webkit-animation-fill-mode: forwards;
 	animation-fill-mode: forwards;
 }
@@ -174,7 +253,7 @@ body {
 	animation-fill-mode: forwards;
 }
 .css-typing h1:nth-child(3) {
-	width: 27.3em;
+	width: 29em;
 	opacity: 0;
 	-webkit-animation: type2 2s steps(40, end);
 	animation: type2 2s steps(40, end);
@@ -184,7 +263,7 @@ body {
 	animation-fill-mode: forwards;
 }
 .css-typing h1:nth-child(4) {
-	width: 13.2em;
+	width: 13.4em;
 	opacity: 0;
 	-webkit-animation: type2 1s steps(40, end);
 	animation: type2 1s steps(40, end);
@@ -203,8 +282,118 @@ body {
 	animation-delay: 9.1s;
 	-webkit-animation-fill-mode: forwards;
 	animation-fill-mode: forwards;
-	margin-bottom: 6rem;
 }
+
+/* ---------------------- Animista Keyframes ---------------------- */
+/* ----------------------------------------------
+ * Generated by Animista on 2018-12-1 23:12:36
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+ @-webkit-keyframes bounce-in-bottom {
+	0% {
+	  -webkit-transform: translateY(500px);
+			  transform: translateY(500px);
+	  -webkit-animation-timing-function: ease-in;
+			  animation-timing-function: ease-in;
+	  opacity: 0;
+	}
+	38% {
+	  -webkit-transform: translateY(0);
+			  transform: translateY(0);
+	  -webkit-animation-timing-function: ease-out;
+			  animation-timing-function: ease-out;
+	  opacity: 1;
+	}
+	55% {
+	  -webkit-transform: translateY(65px);
+			  transform: translateY(65px);
+	  -webkit-animation-timing-function: ease-in;
+			  animation-timing-function: ease-in;
+	}
+	72% {
+	  -webkit-transform: translateY(0);
+			  transform: translateY(0);
+	  -webkit-animation-timing-function: ease-out;
+			  animation-timing-function: ease-out;
+	}
+	81% {
+	  -webkit-transform: translateY(28px);
+			  transform: translateY(28px);
+	  -webkit-animation-timing-function: ease-in;
+			  animation-timing-function: ease-in;
+	}
+	90% {
+	  -webkit-transform: translateY(0);
+			  transform: translateY(0);
+	  -webkit-animation-timing-function: ease-out;
+			  animation-timing-function: ease-out;
+	}
+	95% {
+	  -webkit-transform: translateY(8px);
+			  transform: translateY(8px);
+	  -webkit-animation-timing-function: ease-in;
+			  animation-timing-function: ease-in;
+	}
+	100% {
+	  -webkit-transform: translateY(0);
+			  transform: translateY(0);
+	  -webkit-animation-timing-function: ease-out;
+			  animation-timing-function: ease-out;
+	}
+  }
+  @keyframes bounce-in-bottom {
+	0% {
+	  -webkit-transform: translateY(500px);
+			  transform: translateY(500px);
+	  -webkit-animation-timing-function: ease-in;
+			  animation-timing-function: ease-in;
+	  opacity: 0;
+	}
+	38% {
+	  -webkit-transform: translateY(0);
+			  transform: translateY(0);
+	  -webkit-animation-timing-function: ease-out;
+			  animation-timing-function: ease-out;
+	  opacity: 1;
+	}
+	55% {
+	  -webkit-transform: translateY(65px);
+			  transform: translateY(65px);
+	  -webkit-animation-timing-function: ease-in;
+			  animation-timing-function: ease-in;
+	}
+	72% {
+	  -webkit-transform: translateY(0);
+			  transform: translateY(0);
+	  -webkit-animation-timing-function: ease-out;
+			  animation-timing-function: ease-out;
+	}
+	81% {
+	  -webkit-transform: translateY(28px);
+			  transform: translateY(28px);
+	  -webkit-animation-timing-function: ease-in;
+			  animation-timing-function: ease-in;
+	}
+	90% {
+	  -webkit-transform: translateY(0);
+			  transform: translateY(0);
+	  -webkit-animation-timing-function: ease-out;
+			  animation-timing-function: ease-out;
+	}
+	95% {
+	  -webkit-transform: translateY(8px);
+			  transform: translateY(8px);
+	  -webkit-animation-timing-function: ease-in;
+			  animation-timing-function: ease-in;
+	}
+	100% {
+	  -webkit-transform: translateY(0);
+			  transform: translateY(0);
+	  -webkit-animation-timing-function: ease-out;
+			  animation-timing-function: ease-out;
+	}
+  }
 
 @keyframes type2 {
 	0% {
@@ -268,76 +457,25 @@ body {
 		border-color: transparent;
 	}
 }
-
-.wrapper {
-	display: flex;
-	flex-wrap: wrap;
-	height: calc(100% - 3.75rem);
-	justify-content: center;
-	padding: 1.875rem;
-	width: calc(100% - 3.75rem);
+@-webkit-keyframes color-change-3x {
+	0% {
+		background: #8fbc8f;
+	}
+	50% {
+		background: #74a7c6;
+	}
+	100% {
+		background: #dbd7d2;
+	}
 }
-
-img {
-	border-radius: 0.75rem;
-}
-
-.full_name,
-.title,
-.email {
-	flex-basis: 100%;
-	margin-top: 0;
-	text-align: center;
-}
-
-.full_name {
-	font-family: 'Libre Baskerville', serif;
-	font-size: 4rem;
-	line-height: 1.3em;
-	margin-bottom: 1.25rem;
-	margin-top: 1.5rem;
-}
-
-.title {
-	font-size: 3.5rem;
-	letter-spacing: 0.05rem;
-}
-
-.email {
-	font-size: 2rem;
-	letter-spacing: 0.313rem;
-}
-
-.email > a {
-	text-transform: uppercase;
-	text-decoration: none;
-	color: rgb(255, 255, 255);
-}
-
-.link_buttons {
-	display: flex;
-	flex-basis: 75%;
-	flex-direction: row;
-	justify-content: space-around;
-}
-
-.link_button {
-	align-items: center;
-	cursor: pointer;
-	display: flex;
-	font-size: 2rem;
-	margin: 1rem 0.7rem;
-	color: rgb(255, 255, 255);
-}
-
-.ph-shadow {
-	border: 0rem;
-}
-
-.ph-lighting {
-	border-radius: 0.75rem;
-}
-
-.ph-layers div:nth-child(2) {
-	z-index: 1;
+@keyframes color-change-3x {
+	0% {
+		background: #8fbc8f;
+	}
+	50% {
+		background: #74a7c6;
+	}
+	100% {
+		background: #dbd7d2;
+	}
 }
