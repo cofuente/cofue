@@ -24,49 +24,24 @@ export default class ParallaxCard extends Component {
 		return (
 			<div id="main">
 				<ParallaxHover width={700} height={400}>
-					<img
-						ref="image"
-						alt="You got it. Now you can click on the icons to learn more about me."
-						src={card}
-					/>
+					<img ref="image" alt="You got it. Now you can click on the icons to learn more about me." src={card} />
 					<div ref="text">
 						<div className="wrapper">
-							<h1 className="full_name">
-								Chiara
-								<br />
-								Marcial Martínez
-							</h1>
+							<h1 className="full_name">Chiara<br />Marcial Martínez</h1>
 							<h2 className="title">full stack software engineer</h2>
 							<p className="email">
-								<a
-									href="mailto:c0fu3nt3@gmail.com"
-									aria-label="Go on. Send me an email!"
-								>
+								<a href="mailto:c0fu3nt3@gmail.com" aria-label="Go on. Send me an email!">
 									c0fu3nt3@gmail.com
 								</a>
 							</p>
 							<div className="link_buttons">
-								<a
-									className="link_button"
-									onClick={() => openGitHub()}
-									aria-label="Check out my Repos"
-								>
+								<a className="link_button" onClick={() => openGitHub()} aria-label="Check out my Repos">
 									<GithubIcon className="item" />
 								</a>
-								<a
-									className="link_button"
-									onClick={() =>
-										downloadResume(cwd, 'chiaramarcialmartínez.pdf')
-									}
-									aria-label={`Download my Résumé`}
-								>
+								<a className="link_button" onClick={() => downloadResume(cwd, 'chiaramarcialmartínez.pdf')} aria-label={`Download my Résumé`}>
 									<ResumeIcon className="item" />
 								</a>
-								<a
-									className="link_button"
-									onClick={() => openLinkedIn()}
-									aria-label={`I'm on LinkedIn too.`}
-								>
+								<a className="link_button" onClick={() => openLinkedIn()} aria-label={`I'm on LinkedIn too.`}>
 									<LinkedinIcon className="item" />
 								</a>
 							</div>

@@ -18,7 +18,7 @@ export default class ParallaxCard extends Component {
 
         this.buildTransformStrings = this.buildTransformStrings.bind(this)
         this.calculateDistance = this.calculateDistance.bind(this)
-        this.calculateAlphaFromCenter = this.calculateAlphaFromCenter.bind(this)
+        // this.calculateAlphaFromCenter = this.calculateAlphaFromCenter.bind(this)
     }
 
 /*      Original Styles w/ respective Layers:
@@ -46,10 +46,10 @@ export default class ParallaxCard extends Component {
         return Math.floor(Math.sqrt(distanceX + distanceY))
     }
 
-    calculateAlphaFromCenter(current) {
-        let max = Math.max(this.props.width, this.props.height)
-        return current / max * config.alpha
-    }
+    // calculateAlphaFromCenter(current) {
+    //     let max = Math.max(this.props.width, this.props.height)
+    //     return current / max * config.alpha
+    // }
 
     // handleMouseMove(e) {
     //     let pageX = e.pageX,
@@ -92,20 +92,29 @@ export default class ParallaxCard extends Component {
     //   }
 
     handleMouseLeave() {
-        this.setState({
-            rotateX: 0,
-            rotateY: 0,
-            shadowMovement: 0,
-            shadowSize: 0,
-            scale: 1,
-            angle: 0,
-            alpha: 0,
-            width: 50,
-            height:50
-        })
+        // this.setState({
+        //     rotateX: 0,
+        //     rotateY: 0,
+        //     shadowMovement: 0,
+        //     shadowSize: 0,
+        //     scale: 1,
+        //     angle: 0,
+        //     alpha: 0,
+        //     width: 50,
+        //     height:50
+        // })
     }
 
 	render() {
+        const style ={
+            width: '100%',
+            height: '100%',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            bottom: 0,
+            right: 0
+        }
         return (
             <div style={style}
               onMouseEnter={this.onMouseEnter}
