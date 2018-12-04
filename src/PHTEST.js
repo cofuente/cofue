@@ -18,7 +18,7 @@ export default class ParallaxCard2 extends Component {
 				<ParallaxHover iW={700} iH={400}>
 					<img ref="image" src={card} alt="jhg"/>
 					<div ref="text">
-						<div className="wrapper">
+						<div className="text-wrapper">
 							<h1 className="full_name">Chiara<br />Marcial Martínez</h1>
 							<h2 className="title">full stack software engineer</h2>
 							<p className="email">
