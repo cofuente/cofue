@@ -98,7 +98,7 @@ export default class ParallaxCard extends Component {
             textAlign: 'center',
             fontSize: '5rem',
             color: '#ffffff',
-            zIndex:'1',
+            zIndex:'1', //css I added but necessary for clickable icons
         }
         const transformsStyle = {
             WebkitTransform: 'perspective(1000px) scale(' +this.state.scale+ ') rotateX(' +this.state.rotateX+ 'deg) rotateY(' +this.state.rotateY+ 'deg)',
@@ -163,7 +163,6 @@ export default class ParallaxCard extends Component {
             border: '1px solid #e1e1e1',
         }, transitionStyle, transformsStyle )
         const lightingStyle = Object.assign({}, {
-            // backgroundImage: 'linear-gradient(135deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 33%)' //consider maybe making it this?
             backgroundImage: 'linear-gradient(' +this.state.angle+ 'deg, rgba(255,255,255, ' +this.state.alpha+ ') 0%, rgba(255,255,255,0) 40%)',
             borderRadius: '0.75rem', //css I added
         }, baseStyle, transformsStyle)
