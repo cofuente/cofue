@@ -106,7 +106,6 @@ export default class ParallaxCard extends Component {
             transform: 'perspective(1000px) scale(' +this.state.scale+ ') rotateX(' +this.state.rotateX+ 'deg) rotateY(' +this.state.rotateY+ 'deg)',
         }
         if (!Array.isArray(children)) {
-            console.log(children)
             const rbcLayerStyle = Object.assign({}, baseStyle, transformsStyle)
             return React.createElement( 'div', { style: rbcLayerStyle, className: 'ph-layer' }, children)
         }
