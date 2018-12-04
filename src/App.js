@@ -17,9 +17,8 @@ class App extends Component {
 				</div>
 				<ParallaxCard2 />
 				<ParallaxCard />
-				<div id="rotate-device" />
-			</div>
-		)
+			<div id="rotate-device" />
+		</div>)
 	}
 }
 

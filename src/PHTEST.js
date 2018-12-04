@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ParallaxHover from './ParallaxHover'
+// import ParallaxHover from 'react-parallax-hover-with-borders'
 import { GithubIcon, LinkedinIcon, ResumeIcon } from './Icons'
 import card from './card.jpg'
 
@@ -14,7 +15,7 @@ export default class ParallaxCard2 extends Component {
 	render() {
 		return (
 			<div id="test">
-				<ParallaxHover >
+				<ParallaxHover iW={700} iH={400}>
 					<img ref="image" src={card} alt="jhg"/>
 					<div ref="text">
 						<div className="wrapper">
