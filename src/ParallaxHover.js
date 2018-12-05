@@ -107,7 +107,8 @@ export default class ParallaxCard extends Component {
         }
         if (!Array.isArray(children)) {
             const rbcLayerStyle = Object.assign({}, baseStyle, transformsStyle)
-            return React.createElement( 'div', { style: rbcLayerStyle, className: 'ph-layer' }, children)
+            // return (<div style={rbcLayerStyle} className='rbc-layer' props={children} />)
+         return React.createElement('div', { style: rbcLayerStyle, className: 'rbc-layer' }, children )
         }
         return children.map( (layer, key) => {
             const num = ++key
@@ -122,6 +123,7 @@ export default class ParallaxCard extends Component {
                 layer = layer.props.children
                 layerSpecificStyle = Object.assign({}, baseStyle, textStyle, textShadowStyle, layerSpecificStyle)
             }
+            // return (<div style={layerSpecificStyle} className='rbc-layer' key={key} props={layer} />)
          return React.createElement('div', { style: layerSpecificStyle, key: key }, layer )
         })
     }
