@@ -22,7 +22,7 @@ export default class ParallaxCard2 extends Component {
 							<h1 className="full_name">Chiara<br />Marcial Martínez</h1>
 							<h2 className="title">full stack software engineer</h2>
 							<p className="email">
-								<a href="mailto:c0fu3nt3@gmail.com">c0fu3nt3@gmail.com</a>
+								<a href="mailto:contact@cofuente.io">contact@cofuente.io</a>
 							</p>
 							<div className="link_buttons">
                                 <a className="link_button" onClick={() => openGitHub()} aria-label="Check out my Repos">

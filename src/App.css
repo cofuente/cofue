@@ -172,12 +172,12 @@ body {
 /* -------------------------------------------- */
 
 .text-wrapper {
-	display: flex;
+	/* display: flex;
 	flex-wrap: wrap;
 	height: calc(100% - 3.75rem);
 	justify-content: center;
 	padding: 1.875rem;
-	width: calc(100% - 3.75rem);
+	width: calc(100% - 3.75rem); */
 }
 
 img {
@@ -208,7 +208,7 @@ img {
 }
 
 .email {
-	font-size: 2rem;
+	font-size: 1.5rem;
 	letter-spacing: 0.313rem;
 }
 

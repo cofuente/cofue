@@ -30,8 +30,8 @@ export default class ParallaxCard extends Component {
 							<h1 className="full_name">Chiara<br />Marcial Martínez</h1>
 							<h2 className="title">full stack software engineer</h2>
 							<p className="email">
-								<a href="mailto:c0fu3nt3@gmail.com" aria-label="Go on. Send me an email!">
-									c0fu3nt3@gmail.com
+								<a href="mailto:contact@cofuente.io" aria-label="Go on. Send me an email!">
+									contact@cofuente.io
 								</a>
 							</p>
 							<div className="link_buttons">
