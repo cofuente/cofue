@@ -42,7 +42,7 @@ export default class ParallaxCard extends Component {
         const bounds = this.refs.wrapper.getBoundingClientRect()
         const centerX = width / 2
         const centerY = height / 2
-        const widthMultiplier = 320 / width
+        const widthMultiplier = 320 / width //~.457
         const offsetX = 0.52 - (pageX - bounds.left - scrollLeft) / width
         const offsetY = 0.52 - (pageY - bounds.top - scrollTop) / height
         const deltaX = pageX - bounds.left - scrollLeft - centerX
@@ -65,7 +65,6 @@ export default class ParallaxCard extends Component {
             angle: angleDeg,
             alpha: alpha,
         })
-        // console.log(this.state)
     }
 
     handleMouseLeave(e) {
@@ -78,98 +77,63 @@ export default class ParallaxCard extends Component {
             angle: 0,
             alpha: 0,
         })
-        // console.log(this.state)
     }
 
     renderCardContent(children) {
-        const baseStyle = {
-            width: '100%',
-            height: '100%',
-            position: 'absolute',
-            top: '0',
-            left: '0',
-            bottom: '0',
-            right: '0',
-        }
-        const textStyle= {
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            textAlign: 'center',
-            fontSize: '5rem',
-            color: '#ffffff',
-            zIndex:'1', //css I added but necessary for clickable icons
-        }
-        const transformsStyle = {
+        const genericTransforms = {
             WebkitTransform: 'perspective(1000px) scale(' +this.state.scale+ ') rotateX(' +this.state.rotateX+ 'deg) rotateY(' +this.state.rotateY+ 'deg)',
             MozTransform: 'perspective(1000px) scale(' +this.state.scale+ ') rotateX(' +this.state.rotateX+ 'deg) rotateY(' +this.state.rotateY+ 'deg)',
             transform: 'perspective(1000px) scale(' +this.state.scale+ ') rotateX(' +this.state.rotateX+ 'deg) rotateY(' +this.state.rotateY+ 'deg)',
         }
-        if (!Array.isArray(children)) {
-            const rbcLayerStyle = Object.assign({}, baseStyle, transformsStyle)
-            // return (<div style={rbcLayerStyle} className='rbc-layer' props={children} />)
-         return React.createElement('div', { style: rbcLayerStyle, className: 'rbc-layer' }, children )
+        if (!Array.isArray(children)) {//in case of only one child, probably just the card img
+            return (
+                <div style={genericTransforms} className='rbc-layer-solo' >
+                    {children}
+                </div>
+                )
         }
-        return children.map( (layer, key) => {
-            const num = ++key
-            const rotateX = Math.floor(this.state.rotateX / num)
-            const rotateY = Math.floor(this.state.rotateY / num)
-            let layerSpecificStyle = {
-                WebkitTransform: 'perspective(1000px) scale(' +this.state.scale+ ') rotateX(' +rotateX+ ') rotateY(' +rotateY+ 'deg)',
-                MozTransform: 'perspective(1000px) scale(' +this.state.scale+ ') rotateX(' +rotateX+ ') rotateY(' +rotateY+ 'deg)',
-                transform: 'perspective(1000px) scale(' +this.state.scale+ ') rotateX(' +rotateX+ ') rotateY(' +rotateY+ 'deg)',            }
-            if (layer.ref === 'text') {
-                const textShadowStyle = { textShadow: rotateY * 0.5 + 'px ' + rotateX * 0.5 + 'px 10px rgba(0, 0, 0, 0.3)'}
-                layer = layer.props.children
-                layerSpecificStyle = Object.assign({}, baseStyle, textStyle, textShadowStyle, layerSpecificStyle)
+        return children.map( (childLayer, key) => {
+            const num = key+1
+            const layerClassName='rbc-layer'+key
+            const rotateX = this.state.rotateX/num
+            const rotateY = this.state.rotateY/num
+            const textShadow = {textShadow: rotateY * 0.5 + 'px ' + rotateX * 0.5 + 'px 10px rgba(0, 0, 0, 0.3)'}
+            let layerSpecificTransforms = genericTransforms // for now the image layer gets generic transforms until I can figure out better transform math that works
+            if (childLayer.ref === 'text') {
+                childLayer = childLayer.props.children
+                layerSpecificTransforms = Object.assign( textShadow, {
+                    WebkitTransform: 'perspective(1000px) scale(' +this.state.scale+ ') rotateX(' +rotateX+ ') rotateY(' +rotateY+ 'deg)',
+                    MozTransform: 'perspective(1000px) scale(' +this.state.scale+ ') rotateX(' +rotateX+ ') rotateY(' +rotateY+ 'deg)',
+                    transform: 'perspective(1000px) scale(' +this.state.scale+ ') rotateX(' +rotateX+ ') rotateY(' +rotateY+ 'deg)',
+                })
             }
-            // return (<div style={layerSpecificStyle} className='rbc-layer' key={key} props={layer} />)
-         return React.createElement('div', { style: layerSpecificStyle, key: key }, layer )
+            return (
+                <div style={layerSpecificTransforms} className={layerClassName} key={key} >
+                    {childLayer}
+                </div>
+                )
         })
+
     }
 
 	render() {
-        const transitionStyle = {transition: 'all 0.3s ease-out'}
-        const transformsStyle = {
+        const genericTransforms = {
             WebkitTransform: 'perspective(1000px) scale(' +this.state.scale+ ') rotateX(' +this.state.rotateX+ 'deg) rotateY(' +this.state.rotateY+ 'deg)',
             MozTransform: 'perspective(1000px) scale(' +this.state.scale+ ') rotateX(' +this.state.rotateX+ 'deg) rotateY(' +this.state.rotateY+ 'deg)',
             transform: 'perspective(1000px) scale(' +this.state.scale+ ') rotateX(' +this.state.rotateX+ 'deg) rotateY(' +this.state.rotateY+ 'deg)',
         }
-        const baseStyle = {
-            width: '100%',
-            height: '100%',
-            position: 'absolute',
-            top: '0',
-            left: '0',
-            bottom: '0',
-            right: '0',
-        }
         const rbcWrapperStyle = Object.assign({}, {
-            position: 'relative',
-            margin: '0',
-            padding: '0',
             width: this.props.iW,
             height: this.props.iH,
-        }, transitionStyle, transformsStyle)
+        }, genericTransforms)
         const shadowStyle = Object.assign({}, {
-            width: '90%',
-            height: '90%',
-            position: 'absolute',
-            top: '5%',
-            left: '5%',
-            bottom: '0',
-            right: '0',
-            background: 'none',
             boxShadow: '0px ' + this.state.shadowMovement + 'px ' + this.state.shadowSize + 'px rgba(0, 0, 0, 0.6)',
-            borderRadius: '10px',
-            border: '1px solid #e1e1e1',
-        }, transitionStyle, transformsStyle )
+        }, genericTransforms )
         const lightingStyle = Object.assign({}, {
             backgroundImage: 'linear-gradient(' +this.state.angle+ 'deg, rgba(255,255,255, ' +this.state.alpha+ ') 0%, rgba(255,255,255,0) 40%)',
-            borderRadius: '0.75rem', //css I added
-        }, baseStyle, transformsStyle)
+        }, genericTransforms)
         return (
-            <div style={{transformStyle: 'preserve-3d'}}>
+            <div className='rbc-outer' >
                 <div style={rbcWrapperStyle} ref='wrapper' className='rbc-wrapper' onMouseMove={this.handleMouseMove} onMouseLeave={this.handleMouseLeave} >
                     <div className='rbc-shadow' style={shadowStyle} />
                     <div className='rbc-layers' >

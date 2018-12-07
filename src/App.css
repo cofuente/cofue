@@ -234,6 +234,87 @@ img {
 	text-shadow: inherit;
 	color: rgb(255, 255, 255);
 }
+/* -------------------------------------------- MY RBC CSS -------------------------------------------- */
+#test{
+	padding-top: 0;
+	padding-right: 0;
+	padding-bottom: 2.5vh;
+	padding-left: 0;
+	margin: 0;
+}
+.rbc-outer {
+	transform-style: preserve-3d;
+}
+.rbc-wrapper { /* do not seem strictly necessary...? except for transition */
+	position: relative;
+	margin: 0;
+	padding: 0;
+	transition: all 0.3s ease-out;
+}
+.rbc-shadow {
+	width: 90%;
+	height: 90%;
+	position: absolute;
+	top: 5%;
+	left: 5%;
+	bottom: 0;
+	right: 0;
+	background: none;
+	border-radius: 10px;
+	border: 1px solid #e1e1e1;
+	transition: all 0.3s ease-out;
+}
+
+.rbc-layers {
+}
+
+.rbc-layer-solo {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+.rbc-layer0 {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+.rbc-layer1 {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	font-size: 5rem;
+	color: #ffffff;
+	z-index:1;
+}
+
+.rbc-lighting {
+	border-radius: 0.75rem;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
 
 /* -------------------------------------------- original npm package settings -------------------------------------------- */
 .ph-shadow {
