@@ -22,7 +22,7 @@ const downloadResume = (uri, name) => {
 export default class MyCard extends Component {
 	render() {
 		return (
-			<div id="test">
+			<div id="main">
 				<ReactBusinessCard iW={700} iH={400}>
 					<img ref="image" src={card} alt="jhg"/>
 					<div ref="text">

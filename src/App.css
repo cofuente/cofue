@@ -61,10 +61,7 @@ body {
 
 #main {
 	/* holds the card */
-	padding-top: 2.5vh;
-    padding-right: 0;
-    padding-bottom: 0;
-    padding-left: 0;
+	padding: 0;
 	margin: 0;
 	-webkit-animation: bounce-in-bottom 1.1s both;
 	animation: bounce-in-bottom 1.1s both;
@@ -78,98 +75,7 @@ body {
 	margin: 0;
 }
 
-/* ---------------------- Media Q's ---------------------- */
-@media screen and (min-width: 500px) {  /* Test media q, remember to delete******************/
-	#intro {
-		display: none;
-		padding-bottom: 0;
-	}
 
-	#test{ /* Test media q, remember to delete*****************************************/
-		/* display: flex; */
-		/* padding:0; */
-		padding-top: 0;
-		padding-right: 0;
-		padding-bottom: 2.5vh;
-		padding-left: 0;
-		margin: 0;
-		/* width: 100%;
-		height:100%; */
-	}
-
-	#main {
-		/* holds the card */
-		-webkit-animation-delay: 0s;
-		animation-delay: 0s;
-		/* width: 100%;
-		height:100%; */
-	}
-}
-
-@media screen and (max-width: 175px) {
-	/* No matter the orientation, the screen is simply not big enough to handle even the resized card, figure out as low as the width can go and still be clickable/visible to set it here */
-	/* display a div saying: "I'm sorry your device is screen is too small to view this page" */
-}
-
-@media screen and (max-height: 100px) {
-	/* No matter the orientation, the screen is simply not big enough to handle even the resized card, figure out as low as the height can go and still be clickable/visible to set it here */
-	/* display a div saying: "I'm sorry your device is screen is too small to view this page" */
-}
-
-@media screen and (max-height: 702px) and (orientation:portrait) {
-	/* Find out what's the minimum width and height for landscape orientation of just the card, take the landscape haight and make it the width here */
-
-	/* display a "rotate your phone" div */
-	#phone-rotate{
-		background-color: coral;
-		padding:5%;
-		width: 30px;
-		height: 30px;
-	}
-
-	#intro {
-		display: none;
-		padding-bottom:0;
-	}
-	#main {
-		display:none;
-		padding-top: 0;
-	}
-}
-
-@media screen and (max-width: 702px) and (orientation:landscape) {
-	/* corresponds to above*/
-	/* remove the "rotate your phone" div */
-	#phone-rotate{
-		display:none;
-		padding: 0;
-		margin: 0;
-	}
-	#intro {
-		display: none;
-		padding-bottom:0;
-	}
-	#main {
-		padding-top: 0;
-		-webkit-animation-delay: 0s;
-		animation-delay: 0s;
-	}
-}
-
-@media screen and (max-height: 629px) {
-	/* No matter the orientation, the intro text simply does not look good without a min height of 630px */
-	#intro {
-		display: none;
-		padding-bottom:0;
-	}
-	#main {
-		padding-top: 0;
-		-webkit-animation-delay: 0s;
-		animation-delay: 0s;
-	}
-}
-
-/* -------------------------------------------- */
 
 .text-wrapper {
 	/* display: flex;
@@ -236,10 +142,7 @@ img {
 }
 /* -------------------------------------------- MY RBC CSS -------------------------------------------- */
 #test{
-	padding-top: 0;
-	padding-right: 0;
-	padding-bottom: 2.5vh;
-	padding-left: 0;
+	padding:0;
 	margin: 0;
 }
 .rbc-outer {
@@ -315,6 +218,92 @@ img {
 	bottom: 0;
 	right: 0;
 }
+
+/* ---------------------- Media Q's ---------------------- */
+@media screen and (min-width: 500px) {  /* Test media q, remember to delete******************/
+	#intro {
+		display: none;
+		padding-bottom: 0;
+	}
+
+	#test{
+		padding:0;
+		margin: 0;
+	}
+
+	#main {
+		-webkit-animation-delay: 0s;
+		animation-delay: 0s;
+	}
+	#super {
+		justify-content: space-evenly
+	}
+}
+
+@media screen and (max-width: 175px) {
+	/* No matter the orientation, the screen is simply not big enough to handle even the resized card, figure out as low as the width can go and still be clickable/visible to set it here */
+	/* display a div saying: "I'm sorry your device is screen is too small to view this page" */
+}
+
+@media screen and (max-height: 100px) {
+	/* No matter the orientation, the screen is simply not big enough to handle even the resized card, figure out as low as the height can go and still be clickable/visible to set it here */
+	/* display a div saying: "I'm sorry your device is screen is too small to view this page" */
+}
+
+@media screen and (max-height: 702px) and (orientation:portrait) {
+	/* Find out what's the minimum width and height for landscape orientation of just the card, take the landscape haight and make it the width here */
+
+	/* display a "rotate your phone" div */
+	#phone-rotate{
+		background-color: coral;
+		padding:5%;
+		width: 30px;
+		height: 30px;
+	}
+
+	#intro {
+		display: none;
+		padding-bottom:0;
+	}
+	#main {
+		display:none;
+		padding-top: 0;
+	}
+}
+
+@media screen and (max-width: 702px) and (orientation:landscape) {
+	/* corresponds to above*/
+	/* remove the "rotate your phone" div */
+	#phone-rotate{
+		display:none;
+		padding: 0;
+		margin: 0;
+	}
+	#intro {
+		display: none;
+		padding-bottom:0;
+	}
+	#main {
+		padding-top: 0;
+		-webkit-animation-delay: 0s;
+		animation-delay: 0s;
+	}
+}
+
+@media screen and (max-height: 629px) {
+	/* No matter the orientation, the intro text simply does not look good without a min height of 630px */
+	#intro {
+		display: none;
+		padding-bottom:0;
+	}
+	#main {
+		padding-top: 0;
+		-webkit-animation-delay: 0s;
+		animation-delay: 0s;
+	}
+}
+
+
 
 /* -------------------------------------------- original npm package settings -------------------------------------------- */
 .ph-shadow {
