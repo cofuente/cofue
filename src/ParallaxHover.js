@@ -97,14 +97,15 @@ export default class ParallaxCard extends Component {
             const layerClassName='rbc-layer'+key
             const rotateX = this.state.rotateX/num
             const rotateY = this.state.rotateY/num
+            const scale = this.state.scale+0.0175
             const textShadow = {textShadow: rotateY * 0.5 + 'px ' + rotateX * 0.5 + 'px 10px rgba(0, 0, 0, 0.3)'}
             let layerSpecificTransforms = genericTransforms // for now the image layer gets generic transforms until I can figure out better transform math that works
             if (childLayer.ref === 'text') {
                 childLayer = childLayer.props.children
                 layerSpecificTransforms = Object.assign( textShadow, {
-                    WebkitTransform: 'perspective(1000px) scale(' +this.state.scale+ ') rotateX(' +rotateX+ ') rotateY(' +rotateY+ 'deg)',
-                    MozTransform: 'perspective(1000px) scale(' +this.state.scale+ ') rotateX(' +rotateX+ ') rotateY(' +rotateY+ 'deg)',
-                    transform: 'perspective(1000px) scale(' +this.state.scale+ ') rotateX(' +rotateX+ ') rotateY(' +rotateY+ 'deg)',
+                    WebkitTransform: 'perspective(1000px) scale(' +scale+ ') rotateX(' +rotateX+ ') rotateY(' +rotateY+ 'deg)',
+                    MozTransform: 'perspective(1000px) scale(' +scale+ ') rotateX(' +rotateX+ ') rotateY(' +rotateY+ 'deg)',
+                    transform: 'perspective(1000px) scale(' +scale+ ') rotateX(' +rotateX+ ') rotateY(' +rotateY+ 'deg)',
                 })
             }
             return (
