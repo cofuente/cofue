@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import ParallaxHover from './ParallaxHover'
-// import ParallaxHover from 'react-parallax-hover-with-borders'
+import ReactBusinessCard from './ReactBusinessCard'
 import { GithubIcon, LinkedinIcon, ResumeIcon } from './Icons'
 import card from './card.jpg'
+import cwd from './cwd.pdf'
 
 const openLinkedIn = () => {
 	window.open('https://www.linkedin.com/in/cofuente/')
@@ -10,12 +10,20 @@ const openLinkedIn = () => {
 const openGitHub = () => {
 	window.open('https://github.com/cofuente')
 }
+const downloadResume = (uri, name) => {
+	const link = document.createElement('a')
+	link.download = name
+	link.href = uri
+	document.body.appendChild(link)
+	link.click()
+	document.body.removeChild(link)
+}
 
-export default class ParallaxCard2 extends Component {
+export default class MyCard extends Component {
 	render() {
 		return (
 			<div id="test">
-				<ParallaxHover iW={700} iH={400}>
+				<ReactBusinessCard iW={700} iH={400}>
 					<img ref="image" src={card} alt="jhg"/>
 					<div ref="text">
 						<div className="text-wrapper">
@@ -28,7 +36,7 @@ export default class ParallaxCard2 extends Component {
                                 <a className="link_button" onClick={() => openGitHub()} aria-label="Check out my Repos">
                                     <GithubIcon className="item" />
                                 </a>
-								<a className="link_button" aria-label={`Download my Résumé`}>
+								<a className="link_button" onClick={() => downloadResume(cwd, 'chiaramarcialmartínez.pdf')} aria-label={`Download my Résumé`}>
 									<ResumeIcon className="item" />
 								</a>
                                 <a className="link_button" onClick={() => openLinkedIn()} aria-label={`I'm on LinkedIn too.`}>
@@ -37,7 +45,7 @@ export default class ParallaxCard2 extends Component {
 							</div>
 						</div>
 					</div>
-				</ParallaxHover>
+				</ReactBusinessCard>
 			</div>
 		)
 	}

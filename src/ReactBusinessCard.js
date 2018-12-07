@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class ParallaxCard extends Component {
+export default class ReactBusinessCard extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -97,7 +97,7 @@ export default class ParallaxCard extends Component {
             const layerClassName='rbc-layer'+key
             const rotateX = this.state.rotateX/num
             const rotateY = this.state.rotateY/num
-            const scale = this.state.scale+0.0175
+            const scale = this.state.scale+0.025 //scale adjustment that compensates for how the layer specific transforms aren't working for image layer
             const textShadow = {textShadow: rotateY * 0.5 + 'px ' + rotateX * 0.5 + 'px 10px rgba(0, 0, 0, 0.3)'}
             let layerSpecificTransforms = genericTransforms // for now the image layer gets generic transforms until I can figure out better transform math that works
             if (childLayer.ref === 'text') {
@@ -146,20 +146,3 @@ export default class ParallaxCard extends Component {
         )
     }
 }
-
-
-
-
-    /*
-
-    Original Styles w/ respective Layers:
-                phOuter
-                phWrapper
-                    phShadow
-                    phLayers
-                        phLayer div w/ styles wrapped around img
-                        phLayer div w/ phText styles wrapped around 'wrapper' wrapped around all the text
-                    phLighting
-
-
-*/

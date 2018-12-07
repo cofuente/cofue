@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import ParallaxCard from './ParallaxCard'
-import ParallaxCard2 from './PHTEST'
-
+import MyCard from './CardContent'
 import './App.css'
 
 class App extends Component {
@@ -15,7 +14,7 @@ class App extends Component {
 					<h1>So here, take my card.</h1>
 					<h1> -Go on, take it.</h1>
 				</div>
-				<ParallaxCard2 />
+				<MyCard />
 				<ParallaxCard />
 			<div id="rotate-device" />
 		</div>)
