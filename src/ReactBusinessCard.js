@@ -97,17 +97,17 @@ export default class FloatingCard extends Component {
         return children.map( (childLayer, key) => {
             const num = key+1
             const layerClassName='rbc-layer-0'+key
-            const rotateX = this.state.rotateX/num
-            const rotateY = this.state.rotateY/num
-            const textShadow = {textShadow: rotateY * 0.5 + 'px ' + rotateX * 0.5 + 'px 10px rgba(0, 0, 0, 0.3)'}
+            const rotateX = Math.floor(this.state.rotateX/num) +1
+            const rotateY = Math.floor(this.state.rotateY/num) +1
             let layerSpecificTransforms = genericTransforms // for now the image layer gets generic transforms until I can figure out better transform math that works
             if (childLayer.ref === 'text') {
                 childLayer = childLayer.props.children
-                layerSpecificTransforms = Object.assign( textShadow, {
+                layerSpecificTransforms = {
                     WebkitTransform: 'perspective(1000px) scale(' +this.state.scale+ ') rotateX(' +rotateX+ ') rotateY(' +rotateY+ 'deg)',
                     MozTransform: 'perspective(1000px) scale(' +this.state.scale+ ') rotateX(' +rotateX+ ') rotateY(' +rotateY+ 'deg)',
                     transform: 'perspective(1000px) scale(' +this.state.scale+ ') rotateX(' +rotateX+ ') rotateY(' +rotateY+ 'deg)',
-                })
+                    textShadow: rotateY * 0.5 + 'px ' + rotateX * 0.5 + 'px 10px rgba(0, 0, 0, 0.3)'
+                }
             }
             return (
                 <div style={layerSpecificTransforms} className={layerClassName} key={key} >
