@@ -11,6 +11,8 @@ export default class FloatingCard extends Component {
             scale: 1,
             angle: 0,
             alpha: 0,
+            width: this.props.iW,
+            height: this.props.iH,
         }
 
         this.handleMouseMove = this.handleMouseMove.bind(this)
@@ -27,7 +29,7 @@ export default class FloatingCard extends Component {
     }
 
     calculateAlphaFromCenter(current) {
-        let max = Math.max(this.props.iW, this.props.iH)
+        let max = Math.max(this.state.width, this.state.height)
         return current / max * 0.4 // Alpha channel modifer: 1.01 -> 1.1~  from config.alpha but currently at .4????
     }
 
@@ -35,8 +37,8 @@ export default class FloatingCard extends Component {
         const pageX = e.pageX
         const pageY = e.pageY
         const nativeEvent = e.nativeEvent
-        const width = this.props.iW
-        const height = this.props.iH
+        const width = this.state.width
+        const height = this.state.height
         const scrollTop = document.body.scrollTop
         const scrollLeft = document.body.scrollLeft
         const bounds = this.refs.wrapper.getBoundingClientRect()
@@ -94,18 +96,17 @@ export default class FloatingCard extends Component {
         }
         return children.map( (childLayer, key) => {
             const num = key+1
-            const layerClassName='rbc-layer'+key
+            const layerClassName='rbc-layer-0'+key
             const rotateX = this.state.rotateX/num
             const rotateY = this.state.rotateY/num
-            const scale = this.state.scale+0.025 //scale adjustment that compensates for how the layer specific transforms aren't working for image layer
             const textShadow = {textShadow: rotateY * 0.5 + 'px ' + rotateX * 0.5 + 'px 10px rgba(0, 0, 0, 0.3)'}
             let layerSpecificTransforms = genericTransforms // for now the image layer gets generic transforms until I can figure out better transform math that works
             if (childLayer.ref === 'text') {
                 childLayer = childLayer.props.children
                 layerSpecificTransforms = Object.assign( textShadow, {
-                    WebkitTransform: 'perspective(1000px) scale(' +scale+ ') rotateX(' +rotateX+ ') rotateY(' +rotateY+ 'deg)',
-                    MozTransform: 'perspective(1000px) scale(' +scale+ ') rotateX(' +rotateX+ ') rotateY(' +rotateY+ 'deg)',
-                    transform: 'perspective(1000px) scale(' +scale+ ') rotateX(' +rotateX+ ') rotateY(' +rotateY+ 'deg)',
+                    WebkitTransform: 'perspective(1000px) scale(' +this.state.scale+ ') rotateX(' +rotateX+ ') rotateY(' +rotateY+ 'deg)',
+                    MozTransform: 'perspective(1000px) scale(' +this.state.scale+ ') rotateX(' +rotateX+ ') rotateY(' +rotateY+ 'deg)',
+                    transform: 'perspective(1000px) scale(' +this.state.scale+ ') rotateX(' +rotateX+ ') rotateY(' +rotateY+ 'deg)',
                 })
             }
             return (
@@ -124,8 +125,8 @@ export default class FloatingCard extends Component {
             transform: 'perspective(1000px) scale(' +this.state.scale+ ') rotateX(' +this.state.rotateX+ 'deg) rotateY(' +this.state.rotateY+ 'deg)',
         }
         const rbcWrapperStyle = Object.assign({}, {
-            width: this.props.iW,
-            height: this.props.iH,
+            width: this.state.width,
+            height: this.state.height
         }, genericTransforms)
         const shadowStyle = Object.assign({}, {
             boxShadow: '0px ' + this.state.shadowMovement + 'px ' + this.state.shadowSize + 'px rgba(0, 0, 0, 0.6)',

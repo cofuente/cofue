@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ReactBusinessCard from './ReactBusinessCard'
 import { GithubIcon, LinkedinIcon, ResumeIcon } from './Icons'
-import card from './card.jpg'
+import cardStock from './card.jpg'
 import cwd from './cwd.pdf'
 
 const openLinkedIn = () => {
@@ -24,7 +24,7 @@ export default class MyCard extends Component {
 		return (
 			<div id="main">
 				<ReactBusinessCard iW={700} iH={400}>
-					<img ref="image" src={card} alt="jhg"/>
+					<img ref="image" src={cardStock} alt="THIS IS THE CARD ALT"/>
 					<div ref="text">
 						<div className="text-wrapper">
 							<h1 className="full_name">Chiara<br />Marcial Martínez</h1>
