@@ -3,139 +3,460 @@
 * {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	box-sizing: border-box;
 }
 
 html {
 	-webkit-animation: color-change-3x 4s linear infinite alternate both;
 	animation: color-change-3x 4s linear infinite alternate both;
-	font-size: 1em;
-	background-color: transparent !important
-}
-@-webkit-keyframes color-change-3x {
-	0% {
-		background: #8fbc8f;
-	}
-	50% {
-		background: #74a7c6;
-	}
-	100% {
-		background: #dbd7d2;
-	}
-}
-@keyframes color-change-3x {
-	0% {
-		background: #8fbc8f;
-	}
-	50% {
-		background: #74a7c6;
-	}
-	100% {
-		background: #dbd7d2;
-	}
+	font-size: 10px;
+	background-color: transparent !important;
+	width: 100%;
+	height:100%;
+	margin: 0;
+	padding: 0;
 }
 
 body {
 	font-family: 'Comfortaa', cursive;
-	margin: 0 auto;
+	margin: 0;
 	padding: 0;
-}
-@media (min-width: 300px) and (orientation: portrait) {
-	#app {
-		position: relative;
-		width: 100%;
-		height: 100%;
-		top: calc(50vh - 400px);
-		left: calc(50vw - 400px);
-	}
-	#mobile-only {
-		display: none;
-	}
-}
-@media (min-height: 300px) and (orientation: landscape) {
-	#app {
-		position: relative;
-		width: 100%;
-		height: 100%;
-		top: calc(50vh - 400px);
-		left: calc(50vw - 400px);
-	}
-	#mobile-only {
-		display: none;
-	}
+	width: 100%;
+	height:100%;
 }
 
-@media (max-width: 299px) and (orientation: portrait) {
-	#app {
-		position: relative;
-	}
-	.css-typing h1:nth-child(1) {
-		display: none;
-	}
-	.css-typing h1:nth-child(2) {
-		display: none;
-	}
-	.css-typing h1:nth-child(3) {
-		display: none;
-	}
-	.css-typing h1:nth-child(4) {
-		display: none;
-	}
-	.css-typing h1:nth-child(5) {
-		display: none;
-	}
-	#main {
-		display: none;
-	}
-	#mobile-only {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
+#root {
+	/* where all react is rendered out */
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height:100%;
+    overflow: hidden;
+    position:fixed;
 }
 
-@media (max-height: 299px) and (orientation: landscape) {
-	#app {
-		position: relative;
-	}
-	.css-typing h1:nth-child(1) {
-		display: none;
-	}
-	.css-typing h1:nth-child(2) {
-		display: none;
-	}
-	.css-typing h1:nth-child(3) {
-		display: none;
-	}
-	.css-typing h1:nth-child(4) {
-		display: none;
-	}
-	.css-typing h1:nth-child(5) {
-		display: none;
-	}
-	#main {
-		display: none;
-	}
-	#mobile-only {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
+#super {
+	/* direct parent of intro and main */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	margin: 0;
+	padding: 5%;
+	width: 100%;
+	height:100%;
 }
 
 #intro {
-	max-width: 700px;
+	/* holds the intro text */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding:0;
+	margin: 0;
 }
 
+#main {
+	/* holds the card */
+	padding: 0;
+	margin: 0;
+	-webkit-animation: bounce-in-bottom 1.1s both;
+	animation: bounce-in-bottom 1.1s both;
+	-webkit-animation-delay: 7.2s;
+	animation-delay: 7.2s;
+}
+/* -------------------------------------------- RBC CSS -------------------------------------------- */
+.rbc-outer {
+	transform-style: preserve-3d;
+}
+
+.rbc-wrapper {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	transition: all 0.3s ease-out;
+}
+
+.rbc-shadow {
+	width: 90%;
+	height: 90%;
+	position: absolute;
+	top: 5%;
+	left: 5%;
+	bottom: 0;
+	right: 0;
+	background: none;
+	border-radius: 10px;
+	border: 1px solid #e1e1e1;
+	transition: all 0.3s ease-out;
+}
+
+.rbc-layers {
+	width: 100%;
+	height: 100%;
+}
+
+.rbc-layer-solo {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+.rbc-layer-00 {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+img {
+	border-radius: 2.75rem;
+}
+
+.rbc-layer-01 {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	/* display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin: 0;
+	padding: 0; */
+	color: #ffffff;
+	z-index:1;
+}
+
+.text-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	/* position: relative; */
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	height: 100%;
+	justify-content: center;
+	/* padding: 0; */
+	/* margin: 0; */
+	width: 100%;
+}
+
+/* -------------------------------------------- RBC CARD TEXT & ICONS -------------------------------------------- */
+.full_name,
+.title,
+.email {
+	flex-basis: 100%;
+	text-align: center;
+	/* text-shadow: inherit; */
+}
+
+.full_name {
+	font-family: 'Libre Baskerville', serif;
+	font-size: 4em;
+	/* margin-top: 3.5em; */
+}
+
+.title {
+	font-size: 3.5em;
+	letter-spacing: 0.05em;
+
+}
+
+.email {
+	font-size: 1.5em;
+	letter-spacing: 0.313em;
+}
+
+.email > a {
+	text-transform: uppercase;
+	text-decoration: none;
+	color: rgb(255, 255, 255);
+}
+
+.link_buttons {
+	display: flex;
+	flex-basis: 75%;
+	flex-direction: row;
+	justify-content: space-around;
+
+}
+
+.link_button {
+	align-items: center;
+	cursor: pointer;
+	display: flex;
+	font-size: 2em;
+	margin: 1em 0.7em;
+	text-shadow: inherit;
+	color: rgb(255, 255, 255);
+}
+/* -------------------------------------------------------------------- */
+
+.rbc-lighting {
+	border-radius: 0.75rem;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+/* -------------------------------------------------------------------- */
+
+#rotate-device {
+		display: none;
+		padding: 0;
+		margin: 0;
+}
+
+#screen-too-small {
+		display: none;
+		padding: 0;
+		margin: 0;
+}
+
+/* -------------------------------------------- MEDIA Q'S -------------------------------------------- */
+/* display a div saying: "I'm sorry your device is screen is too small to view this page" */
+@media screen and (max-width: 209px) and (orientation: portrait){
+	#screen-too-small {
+		display: flex;
+		background-color:crimson;
+		padding:5%;
+		width: 90vw;
+		height: 90vw;
+	}
+	#intro {
+		display: none;
+		padding: 0;
+		margin: 0;
+	}
+	#main {
+		display: none;
+	}
+}
+
+/* display a div saying: "I'm sorry your device is screen is too small to view this page" */
+@media screen and (max-height: 318px) and (orientation: landscape) {
+	#screen-too-small {
+		display: flex;
+		background-color:crimson;
+		padding:5%;
+		width: 90vh;
+		height: 90vh;
+	}
+	#intro {
+		display: none;
+		padding: 0;
+		margin: 0;
+	}
+	#main {
+		display: none;
+	}
+}
+
+/* @media screen and (max-height: 699px) and (max-aspect-ratio: 7/4) {
+	#super {
+		padding: 0;
+		margin: 0;
+	}
+	#intro {
+		display: none;
+		width: 0;
+		height: 0;
+		padding: 0;
+		margin: 0;
+	}
+	#main {
+		display: none;
+		width: 0;
+		height: 0;
+		padding: 0;
+		margin: 0;
+	}
+	#rotate-device{
+		display: flex;
+		background-color:coral;
+		padding:5%;
+		width: 50vh;
+		height: 50vh;
+	}
+} */
+
+@media screen and (max-height: 699px) and (min-aspect-ratio: 7/4) {
+	#super {
+		padding: 0;
+		margin: 0;
+	}
+	#intro {
+		display: none;
+		width: 0;
+		height: 0;
+		padding: 0;
+		margin: 0;
+	}
+	html {
+		font-size: 2vh;
+	}
+	#main {
+		-webkit-animation: bounce-in-bottom 0s both;
+		animation: bounce-in-bottom 0s both;
+		-webkit-animation-delay: 0s;
+		animation-delay: 0s;
+	}
+	img {
+		height: 90vh;
+		width: 157vh;
+	}
+}
+
+@media screen and (max-height: 699px) and (max-aspect-ratio: 7/4) {
+	#super {
+		padding: 0;
+		margin: 0;
+	}
+	#intro {
+		display: none;
+		width: 0;
+		height: 0;
+		padding: 0;
+		margin: 0;
+	}
+	html {
+		font-size: 2vh;
+	}
+	#main {
+		-webkit-animation: bounce-in-bottom 0s both;
+		animation: bounce-in-bottom 0s both;
+		-webkit-animation-delay: 0s;
+		animation-delay: 0s;
+	}
+	img {
+		width: 90vw;
+		height: calc(360/7)vw;
+	}
+}
+@media screen and (max-width: 749px) and (orientation: portrait){
+	html {
+		font-size: 1.35vw;
+	}
+	img {
+		width: 90vw;
+		height: calc(360/7)vw;
+	}
+}
+
+
+/* just the card for landscape  assuming a min heigh/width ratio */
+/* @media screen and (max-height: 749px) and (orientation:landscape) {
+	#intro {
+		display: none;
+		padding-bottom:0;
+	}
+	html {
+		font-size: 2vh
+	}
+	#main {
+		padding-top: 0;
+		-webkit-animation-delay: 0s;
+		animation-delay: 0s;
+	}
+	img {
+		width: 90vw;
+		height: calc(360/7)vw;
+	}
+} */
+
+
+/* #rotate-device{
+	display: flex;
+	background-color:coral;
+	padding:5%;
+	width: 50vh;
+	height: 50vh;
+} */
+/* @media screen and (max-height: 749px) and (orientation:portrait) {
+	#intro {
+		display: none;
+		padding-bottom:0;
+	}
+	html {
+		font-size: 1.35vw;
+	}
+	#main {
+		padding-top: 0;
+		-webkit-animation-delay: 0s;
+		animation-delay: 0s;
+	}
+	img {
+		width: 90vw;
+		height: calc(360/7)vw;
+	}
+} */
+
+/* corresponds to above*/
+/* remove the "rotate your phone" div */
+/* remove the intro text */
+/* immediately display card*/
+/* @media screen and (max-width: 749px) and (orientation:landscape) {
+	#rotate-device{
+		display:none;
+		padding: 0;
+		margin: 0;
+	}
+	#intro {
+		display: none;
+		padding-bottom:0;
+	}
+	#main {
+		padding-top: 0;
+		-webkit-animation-delay: 0s;
+		animation-delay: 0s;
+	}
+	html {
+		font-size: 10px;
+	}
+} */
+
+/* @media screen and (max-height: 629px) { */
+	/* No matter the orientation, the intro text simply does not look good without a min height of 630px */
+	/* #intro { */
+		/* display: none; */
+		/* padding-bottom:0; */
+	/* } */
+	/* #main { */
+		/* padding-top: 0; */
+		/* -webkit-animation-delay: 0s; */
+		/* animation-delay: 0s; */
+	/* } */
+/* } */
+
+
+
+
+/* -------------------------------------------- TYPING EFFECT -------------------------------------------- */
 .css-typing h1 {
-	border-right: 0.15em solid orange;
+	border-right: 0.15rem solid orange;
 	font-family: 'Bungee Hairline', cursive;
-	font-size: 1.5rem;
+	font-size: 2.3rem;
 	margin: 0 auto;
 	white-space: nowrap;
 	overflow: hidden;
 }
 .css-typing h1:nth-child(1) {
-	width: 10.1em;
+	width: 10.3em; /* all of these width properties are required for the 'typing' animation to work */
 	opacity: 0;
 	-webkit-animation: type2 1s steps(40, end);
 	animation: type2 1s steps(40, end);
@@ -149,28 +470,28 @@ body {
 	opacity: 0;
 	-webkit-animation: type2 1s steps(40, end);
 	animation: type2 1s steps(40, end);
-	-webkit-animation-delay: 1s;
-	animation-delay: 1s;
+	-webkit-animation-delay: 1.1s;
+	animation-delay: 1.1s;
 	-webkit-animation-fill-mode: forwards;
 	animation-fill-mode: forwards;
 }
 .css-typing h1:nth-child(3) {
-	width: 27.3em;
+	width: 29em;
 	opacity: 0;
 	-webkit-animation: type2 2s steps(40, end);
 	animation: type2 2s steps(40, end);
-	-webkit-animation-delay: 3.5s;
-	animation-delay: 3.5s;
+	-webkit-animation-delay: 3.6s;
+	animation-delay: 3.6s;
 	-webkit-animation-fill-mode: forwards;
 	animation-fill-mode: forwards;
 }
 .css-typing h1:nth-child(4) {
-	width: 13.2em;
+	width: 13.4em;
 	opacity: 0;
 	-webkit-animation: type2 1s steps(40, end);
 	animation: type2 1s steps(40, end);
-	-webkit-animation-delay: 7s;
-	animation-delay: 7s;
+	-webkit-animation-delay: 7.1s;
+	animation-delay: 7.1s;
 	-webkit-animation-fill-mode: forwards;
 	animation-fill-mode: forwards;
 }
@@ -180,12 +501,125 @@ body {
 	-webkit-animation: type3 2s steps(20, end),
 		blink 0.5s step-end infinite alternate;
 	animation: type3 2s steps(20, end), blink 0.5s step-end infinite alternate;
-	-webkit-animation-delay: 9s;
-	animation-delay: 9s;
+	-webkit-animation-delay: 9.1s;
+	animation-delay: 9.1s;
 	-webkit-animation-fill-mode: forwards;
 	animation-fill-mode: forwards;
-	margin-bottom: 6rem;
 }
+
+
+
+
+/* -------------------------------------------- ANIMISTA KEYFRAMES -------------------------------------------- */
+/* ----------------------------------------------
+ * Generated by Animista on 2018-12-1 23:12:36
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+ @-webkit-keyframes bounce-in-bottom {
+	0% {
+	  -webkit-transform: translateY(500px);
+			  transform: translateY(500px);
+	  -webkit-animation-timing-function: ease-in;
+			  animation-timing-function: ease-in;
+	  opacity: 0;
+	}
+	38% {
+	  -webkit-transform: translateY(0);
+			  transform: translateY(0);
+	  -webkit-animation-timing-function: ease-out;
+			  animation-timing-function: ease-out;
+	  opacity: 1;
+	}
+	55% {
+	  -webkit-transform: translateY(65px);
+			  transform: translateY(65px);
+	  -webkit-animation-timing-function: ease-in;
+			  animation-timing-function: ease-in;
+	}
+	72% {
+	  -webkit-transform: translateY(0);
+			  transform: translateY(0);
+	  -webkit-animation-timing-function: ease-out;
+			  animation-timing-function: ease-out;
+	}
+	81% {
+	  -webkit-transform: translateY(28px);
+			  transform: translateY(28px);
+	  -webkit-animation-timing-function: ease-in;
+			  animation-timing-function: ease-in;
+	}
+	90% {
+	  -webkit-transform: translateY(0);
+			  transform: translateY(0);
+	  -webkit-animation-timing-function: ease-out;
+			  animation-timing-function: ease-out;
+	}
+	95% {
+	  -webkit-transform: translateY(8px);
+			  transform: translateY(8px);
+	  -webkit-animation-timing-function: ease-in;
+			  animation-timing-function: ease-in;
+	}
+	100% {
+	  -webkit-transform: translateY(0);
+			  transform: translateY(0);
+	  -webkit-animation-timing-function: ease-out;
+			  animation-timing-function: ease-out;
+	}
+  }
+  @keyframes bounce-in-bottom {
+	0% {
+	  -webkit-transform: translateY(500px);
+			  transform: translateY(500px);
+	  -webkit-animation-timing-function: ease-in;
+			  animation-timing-function: ease-in;
+	  opacity: 0;
+	}
+	38% {
+	  -webkit-transform: translateY(0);
+			  transform: translateY(0);
+	  -webkit-animation-timing-function: ease-out;
+			  animation-timing-function: ease-out;
+	  opacity: 1;
+	}
+	55% {
+	  -webkit-transform: translateY(65px);
+			  transform: translateY(65px);
+	  -webkit-animation-timing-function: ease-in;
+			  animation-timing-function: ease-in;
+	}
+	72% {
+	  -webkit-transform: translateY(0);
+			  transform: translateY(0);
+	  -webkit-animation-timing-function: ease-out;
+			  animation-timing-function: ease-out;
+	}
+	81% {
+	  -webkit-transform: translateY(28px);
+			  transform: translateY(28px);
+	  -webkit-animation-timing-function: ease-in;
+			  animation-timing-function: ease-in;
+	}
+	90% {
+	  -webkit-transform: translateY(0);
+			  transform: translateY(0);
+	  -webkit-animation-timing-function: ease-out;
+			  animation-timing-function: ease-out;
+	}
+	95% {
+	  -webkit-transform: translateY(8px);
+			  transform: translateY(8px);
+	  -webkit-animation-timing-function: ease-in;
+			  animation-timing-function: ease-in;
+	}
+	100% {
+	  -webkit-transform: translateY(0);
+			  transform: translateY(0);
+	  -webkit-animation-timing-function: ease-out;
+			  animation-timing-function: ease-out;
+	}
+  }
 
 @keyframes type2 {
 	0% {
@@ -195,7 +629,7 @@ body {
 		opacity: 1;
 	}
 	99.9% {
-		border-right: 0.15em solid orange;
+		border-right: 0.15rem solid orange;
 	}
 	100% {
 		opacity: 1;
@@ -210,7 +644,7 @@ body {
 		opacity: 1;
 	}
 	99.9% {
-		border-right: 0.15em solid orange;
+		border-right: 0.15rem solid orange;
 	}
 	100% {
 		opacity: 1;
@@ -249,79 +683,25 @@ body {
 		border-color: transparent;
 	}
 }
-#main {
-	max-width: 700px;
+@-webkit-keyframes color-change-3x {
+	0% {
+		background: #8fbc8f;
+	}
+	50% {
+		background: #74a7c6;
+	}
+	100% {
+		background: #dbd7d2;
+	}
 }
-
-.wrapper {
-	display: flex;
-	flex-wrap: wrap;
-	height: calc(100% - 3.75rem);
-	justify-content: center;
-	padding: 1.875rem;
-	width: calc(100% - 3.75rem);
-}
-
-img {
-	border-radius: 0.75rem;
-}
-
-.full_name,
-.title,
-.email {
-	flex-basis: 100%;
-	margin-top: 0;
-	text-align: center;
-}
-
-.full_name {
-	font-family: 'Libre Baskerville', serif;
-	font-size: 2.5rem;
-	line-height: 1.3em;
-	margin-bottom: 1.25rem;
-	margin-top: 1.5rem;
-}
-
-.title {
-	font-size: 2rem;
-	letter-spacing: 0.05rem;
-}
-
-.email {
-	font-size: 1.1rem;
-	letter-spacing: 0.313rem;
-}
-
-.email > a {
-	text-transform: uppercase;
-	text-decoration: none;
-	color: rgb(255, 255, 255);
-}
-
-.link_buttons {
-	display: flex;
-	flex-basis: 75%;
-	flex-direction: row;
-	justify-content: space-around;
-}
-
-.link_button {
-	align-items: center;
-	cursor: pointer;
-	display: flex;
-	font-size: 1.25rem;
-	margin: 1rem 0.7rem;
-	color: rgb(255, 255, 255);
-}
-
-.ph-shadow {
-	border: 0rem;
-}
-
-.ph-lighting {
-	border-radius: 0.75rem;
-}
-
-.ph-layers div:nth-child(2) {
-	z-index: 1;
+@keyframes color-change-3x {
+	0% {
+		background: #8fbc8f;
+	}
+	50% {
+		background: #74a7c6;
+	}
+	100% {
+		background: #dbd7d2;
+	}
 }

@@ -30,3 +30,13 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 to do:
 1-implement mobile gyro transforms with movement
+2-fix scale transform size 1.03
+3-
+                        <!-- <div style={layerSpecificTransforms} className='rbc-layer-00' >
+                            {this.props.children[0]}
+                        </div>
+                        <div style={layerSpecificTransforms} className='rbc-layer-01' ref="text">
+                            {this.props.children[1].props.children}
+                        </div> -->
+4-device-too-small div
+5-line up card text perfectly
