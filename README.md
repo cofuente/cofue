@@ -30,3 +30,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 to do:
 1-implement mobile gyro transforms with movement
+2-fix scale transform size 1.03

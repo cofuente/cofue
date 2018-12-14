@@ -48,7 +48,7 @@ body {
 }
 
 #intro {
-	/* holds the intro message h1's */
+	/* holds the intro text */
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -68,92 +68,18 @@ body {
 	-webkit-animation-delay: 7.2s;
 	animation-delay: 7.2s;
 }
-
-#phone-rotate {
-	display: none;
-	padding: 0;
-	margin: 0;
-}
-
-
-
-.text-wrapper {
-	/* display: flex;
-	flex-wrap: wrap;
-	height: calc(100% - 3.75rem);
-	justify-content: center;
-	padding: 1.875rem;
-	width: calc(100% - 3.75rem); */
-}
-
-img {
-	border-radius: 0.75rem;
-}
-
-/* -------------------------------------------- card contents -------------------------------------------- */
-.full_name,
-.title,
-.email {
-	flex-basis: 100%;
-	margin-top: 0;
-	text-align: center;
-	text-shadow: inherit;
-}
-
-.full_name {
-	font-family: 'Libre Baskerville', serif;
-	font-size: 4rem;
-	line-height: 1.3em;
-	margin-bottom: 1.25rem;
-	margin-top: 1.5rem;
-}
-
-.title {
-	font-size: 3.5rem;
-	letter-spacing: 0.05rem;
-}
-
-.email {
-	font-size: 1.5rem;
-	letter-spacing: 0.313rem;
-}
-
-.email > a {
-	text-transform: uppercase;
-	text-decoration: none;
-	color: rgb(255, 255, 255);
-}
-
-.link_buttons {
-	display: flex;
-	flex-basis: 75%;
-	flex-direction: row;
-	justify-content: space-around;
-}
-
-.link_button {
-	align-items: center;
-	cursor: pointer;
-	display: flex;
-	font-size: 2rem;
-	margin: 1rem 0.7rem;
-	text-shadow: inherit;
-	color: rgb(255, 255, 255);
-}
-/* -------------------------------------------- MY RBC CSS -------------------------------------------- */
-#test{
-	padding:0;
-	margin: 0;
-}
+/* -------------------------------------------- RBC CSS -------------------------------------------- */
 .rbc-outer {
 	transform-style: preserve-3d;
 }
+
 .rbc-wrapper {
 	position: relative;
-	/* margin: 0; */
-	/* padding: 0; */
+	margin: 0;
+	padding: 0;
 	transition: all 0.3s ease-out;
 }
+
 .rbc-shadow {
 	width: 90%;
 	height: 90%;
@@ -164,11 +90,13 @@ img {
 	right: 0;
 	background: none;
 	border-radius: 10px;
-	/* border: 1px solid #e1e1e1; */
+	border: 1px solid #e1e1e1;
 	transition: all 0.3s ease-out;
 }
 
 .rbc-layers {
+	width: 100%;
+	height: 100%;
 }
 
 .rbc-layer-solo {
@@ -185,28 +113,100 @@ img {
 	width: 100%;
 	height: 100%;
 	position: absolute;
-	/* top: 0;
+	top: 0;
 	left: 0;
 	bottom: 0;
-	right: 0; */
+	right: 0;
+}
+
+img {
+	border-radius: 0.75rem;
 }
 
 .rbc-layer-01 {
 	width: 100%;
 	height: 100%;
 	position: absolute;
-	/* top: 0;
+	top: 0;
 	left: 0;
 	bottom: 0;
-	right: 0; */
-	display: flex;
+	right: 0;
+	/* display: flex;
 	justify-content: center;
 	align-items: center;
-	/* text-align: center; */
-	/* font-size: 5rem; */
+	text-align: center;
+	margin: 0;
+	padding: 0; */
 	color: #ffffff;
 	z-index:1;
 }
+
+.text-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	/* position: relative; */
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	height: 100%;
+	justify-content: center;
+	/* padding: 0; */
+	/* margin: 0; */
+	width: 100%;
+}
+
+/* -------------------------------------------- RBC CARD TEXT & ICONS -------------------------------------------- */
+.full_name,
+.title,
+.email {
+	flex-basis: 100%;
+	text-align: center;
+	/* text-shadow: inherit; */
+}
+
+.full_name {
+	font-family: 'Libre Baskerville', serif;
+	font-size: 4em;
+	/* margin-top: 3.5em; */
+}
+
+.title {
+	font-size: 3.5em;
+	letter-spacing: 0.05em;
+
+}
+
+.email {
+	font-size: 1.5em;
+	letter-spacing: 0.313em;
+
+}
+
+.email > a {
+	text-transform: uppercase;
+	text-decoration: none;
+	color: rgb(255, 255, 255);
+}
+
+.link_buttons {
+	display: flex;
+	flex-basis: 75%;
+	flex-direction: row;
+	justify-content: space-around;
+
+}
+
+.link_button {
+	align-items: center;
+	cursor: pointer;
+	display: flex;
+	font-size: 2em;
+	margin: 1em 0.7em;
+	text-shadow: inherit;
+	color: rgb(255, 255, 255);
+}
+/* -------------------------------------------------------------------- */
 
 .rbc-lighting {
 	border-radius: 0.75rem;
@@ -218,28 +218,18 @@ img {
 	bottom: 0;
 	right: 0;
 }
+/* -------------------------------------------------------------------- */
 
-/* ---------------------- Media Q's ---------------------- */
-@media screen and (min-width: 500px) {  /* Test media q, remember to delete******************/
-	#intro {
-		display: none;
-		padding-bottom: 0;
-	}
-
-	#test{
-		padding:0;
-		margin: 0;
-	}
-
-	#main {
-		-webkit-animation-delay: 0s;
-		animation-delay: 0s;
-	}
-	#super {
-		justify-content: space-evenly
-	}
+#phone-rotate {
+	display: none;
+	padding: 0;
+	margin: 0;
 }
 
+
+
+
+/* -------------------------------------------- MEDIA Q'S -------------------------------------------- */
 @media screen and (max-width: 175px) {
 	/* No matter the orientation, the screen is simply not big enough to handle even the resized card, figure out as low as the width can go and still be clickable/visible to set it here */
 	/* display a div saying: "I'm sorry your device is screen is too small to view this page" */
@@ -260,7 +250,6 @@ img {
 		width: 30px;
 		height: 30px;
 	}
-
 	#intro {
 		display: none;
 		padding-bottom:0;
@@ -305,23 +294,8 @@ img {
 
 
 
-/* -------------------------------------------- original npm package settings -------------------------------------------- */
-.ph-shadow {
-	border: 0rem;
-}
 
-.ph-lighting {
-	border-radius: 0.75rem;
-}
-
-.ph-layers div:nth-child(2) {
-	z-index: 1;
-}
-
-
-
-/* ---------------------- Typing Effect ---------------------- */
-
+/* -------------------------------------------- TYPING EFFECT -------------------------------------------- */
 .css-typing h1 {
 	border-right: 0.15rem solid orange;
 	font-family: 'Bungee Hairline', cursive;
@@ -382,7 +356,10 @@ img {
 	animation-fill-mode: forwards;
 }
 
-/* ---------------------- Animista Keyframes ---------------------- */
+
+
+
+/* -------------------------------------------- ANIMISTA KEYFRAMES -------------------------------------------- */
 /* ----------------------------------------------
  * Generated by Animista on 2018-12-1 23:12:36
  * w: http://animista.net, t: @cssanimista
