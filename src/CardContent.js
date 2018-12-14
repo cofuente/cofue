@@ -21,9 +21,35 @@ const downloadResume = (uri, name) => {
 
 export default class MyCard extends Component {
 	render() {
+		const orientation = window.screen.orientation.type
+		let cardHeight, cardWidth
+		switch(orientation){
+			case 'portrait-primary':
+console.log(window.screen.availWidth, window.screen.availHeight, 'this is portrait')
+				cardWidth = window.screen.availWidth < 750 ? window.screen.availWidth * .9 : 700
+				cardHeight = cardWidth < 700 ? (cardWidth * 0.5714285714285714) : 400
+				break
+			case 'landscape-primary':
+console.log(window.screen.availWidth, window.screen.availHeight, 'this is landscape')
+				if (window.screen.availHeight >= 700 ){
+					cardWidth = 700
+					cardHeight = 400
+				} else if ((window.screen.availHeight/window.screen.availWidth) <= 0.5714285714285714 /* min aspect ratio of 7/4 */) {
+					cardHeight = window.screen.availHeight * 0.9
+					cardWidth = cardHeight * 1.75
+				} else {
+					cardWidth = window.screen.availWidth * 0.9
+					cardHeight = (cardWidth * 4)/7
+				}
+				break
+			default:
+				cardHeight = 400
+				cardWidth = 700
+		}
+		console.log(cardWidth, cardHeight)
 		return (
 			<div id="main">
-				<ReactBusinessCard iW={700} iH={400}>
+				<ReactBusinessCard iW={cardWidth} iH={cardHeight}>
 					<img ref="image" src={cardStock} alt="THIS IS THE CARD ALT"/>
 					<div ref="text">
 						<div className="text-wrapper">

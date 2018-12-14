@@ -40,7 +40,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-evenly;
 	margin: 0;
 	padding: 5%;
 	width: 100%;
@@ -52,10 +52,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding-top: 0;
-    padding-right: 0;
-    padding-bottom: 2.5vh;
-    padding-left: 0;
+	padding:0;
 	margin: 0;
 }
 
@@ -120,7 +117,7 @@ body {
 }
 
 img {
-	border-radius: 0.75rem;
+	border-radius: 2.75rem;
 }
 
 .rbc-layer-01 {
@@ -180,7 +177,6 @@ img {
 .email {
 	font-size: 1.5em;
 	letter-spacing: 0.313em;
-
 }
 
 .email > a {
@@ -220,50 +216,202 @@ img {
 }
 /* -------------------------------------------------------------------- */
 
-#phone-rotate {
-	display: none;
-	padding: 0;
-	margin: 0;
+#rotate-device {
+		display: none;
+		padding: 0;
+		margin: 0;
 }
 
-
-
+#screen-too-small {
+		display: none;
+		padding: 0;
+		margin: 0;
+}
 
 /* -------------------------------------------- MEDIA Q'S -------------------------------------------- */
-@media screen and (max-width: 175px) {
-	/* No matter the orientation, the screen is simply not big enough to handle even the resized card, figure out as low as the width can go and still be clickable/visible to set it here */
-	/* display a div saying: "I'm sorry your device is screen is too small to view this page" */
-}
-
-@media screen and (max-height: 100px) {
-	/* No matter the orientation, the screen is simply not big enough to handle even the resized card, figure out as low as the height can go and still be clickable/visible to set it here */
-	/* display a div saying: "I'm sorry your device is screen is too small to view this page" */
-}
-
-@media screen and (max-height: 702px) and (orientation:portrait) {
-	/* Find out what's the minimum width and height for landscape orientation of just the card, take the landscape haight and make it the width here */
-
-	/* display a "rotate your phone" div */
-	#phone-rotate{
-		background-color: coral;
+/* display a div saying: "I'm sorry your device is screen is too small to view this page" */
+@media screen and (max-width: 209px) and (orientation: portrait){
+	#screen-too-small {
+		display: flex;
+		background-color:crimson;
 		padding:5%;
-		width: 30px;
-		height: 30px;
+		width: 90vw;
+		height: 90vw;
 	}
+	#intro {
+		display: none;
+		padding: 0;
+		margin: 0;
+	}
+	#main {
+		display: none;
+	}
+}
+
+/* display a div saying: "I'm sorry your device is screen is too small to view this page" */
+@media screen and (max-height: 318px) and (orientation: landscape) {
+	#screen-too-small {
+		display: flex;
+		background-color:crimson;
+		padding:5%;
+		width: 90vh;
+		height: 90vh;
+	}
+	#intro {
+		display: none;
+		padding: 0;
+		margin: 0;
+	}
+	#main {
+		display: none;
+	}
+}
+
+/* @media screen and (max-height: 699px) and (max-aspect-ratio: 7/4) {
+	#super {
+		padding: 0;
+		margin: 0;
+	}
+	#intro {
+		display: none;
+		width: 0;
+		height: 0;
+		padding: 0;
+		margin: 0;
+	}
+	#main {
+		display: none;
+		width: 0;
+		height: 0;
+		padding: 0;
+		margin: 0;
+	}
+	#rotate-device{
+		display: flex;
+		background-color:coral;
+		padding:5%;
+		width: 50vh;
+		height: 50vh;
+	}
+} */
+
+@media screen and (max-height: 699px) and (min-aspect-ratio: 7/4) {
+	#super {
+		padding: 0;
+		margin: 0;
+	}
+	#intro {
+		display: none;
+		width: 0;
+		height: 0;
+		padding: 0;
+		margin: 0;
+	}
+	html {
+		font-size: 2vh;
+	}
+	#main {
+		-webkit-animation: bounce-in-bottom 0s both;
+		animation: bounce-in-bottom 0s both;
+		-webkit-animation-delay: 0s;
+		animation-delay: 0s;
+	}
+	img {
+		height: 90vh;
+		width: 157vh;
+	}
+}
+
+@media screen and (max-height: 699px) and (max-aspect-ratio: 7/4) {
+	#super {
+		padding: 0;
+		margin: 0;
+	}
+	#intro {
+		display: none;
+		width: 0;
+		height: 0;
+		padding: 0;
+		margin: 0;
+	}
+	html {
+		font-size: 2vh;
+	}
+	#main {
+		-webkit-animation: bounce-in-bottom 0s both;
+		animation: bounce-in-bottom 0s both;
+		-webkit-animation-delay: 0s;
+		animation-delay: 0s;
+	}
+	img {
+		width: 90vw;
+		height: calc(360/7)vw;
+	}
+}
+@media screen and (max-width: 749px) and (orientation: portrait){
+	html {
+		font-size: 1.35vw;
+	}
+	img {
+		width: 90vw;
+		height: calc(360/7)vw;
+	}
+}
+
+
+/* just the card for landscape  assuming a min heigh/width ratio */
+/* @media screen and (max-height: 749px) and (orientation:landscape) {
 	#intro {
 		display: none;
 		padding-bottom:0;
 	}
-	#main {
-		display:none;
-		padding-top: 0;
+	html {
+		font-size: 2vh
 	}
-}
+	#main {
+		padding-top: 0;
+		-webkit-animation-delay: 0s;
+		animation-delay: 0s;
+	}
+	img {
+		width: 90vw;
+		height: calc(360/7)vw;
+	}
+} */
 
-@media screen and (max-width: 702px) and (orientation:landscape) {
-	/* corresponds to above*/
-	/* remove the "rotate your phone" div */
-	#phone-rotate{
+
+/* #rotate-device{
+	display: flex;
+	background-color:coral;
+	padding:5%;
+	width: 50vh;
+	height: 50vh;
+} */
+/* @media screen and (max-height: 749px) and (orientation:portrait) {
+	#intro {
+		display: none;
+		padding-bottom:0;
+	}
+	html {
+		font-size: 1.35vw;
+	}
+	#main {
+		padding-top: 0;
+		-webkit-animation-delay: 0s;
+		animation-delay: 0s;
+	}
+	img {
+		width: 90vw;
+		height: calc(360/7)vw;
+	}
+} */
+
+/* corresponds to above*/
+/* remove the "rotate your phone" div */
+/* remove the intro text */
+/* immediately display card*/
+/* @media screen and (max-width: 749px) and (orientation:landscape) {
+	#rotate-device{
 		display:none;
 		padding: 0;
 		margin: 0;
@@ -277,20 +425,23 @@ img {
 		-webkit-animation-delay: 0s;
 		animation-delay: 0s;
 	}
-}
+	html {
+		font-size: 10px;
+	}
+} */
 
-@media screen and (max-height: 629px) {
+/* @media screen and (max-height: 629px) { */
 	/* No matter the orientation, the intro text simply does not look good without a min height of 630px */
-	#intro {
-		display: none;
-		padding-bottom:0;
-	}
-	#main {
-		padding-top: 0;
-		-webkit-animation-delay: 0s;
-		animation-delay: 0s;
-	}
-}
+	/* #intro { */
+		/* display: none; */
+		/* padding-bottom:0; */
+	/* } */
+	/* #main { */
+		/* padding-top: 0; */
+		/* -webkit-animation-delay: 0s; */
+		/* animation-delay: 0s; */
+	/* } */
+/* } */
 
 
 

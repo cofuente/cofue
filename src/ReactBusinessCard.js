@@ -83,9 +83,9 @@ export default class FloatingCard extends Component {
 
     renderCardContent(children) {
         const genericTransforms = {
-            WebkitTransform: 'perspective(1000px) scale(' +this.state.scale+ ') rotateX(' +this.state.rotateX+ 'deg) rotateY(' +this.state.rotateY+ 'deg)',
-            MozTransform: 'perspective(1000px) scale(' +this.state.scale+ ') rotateX(' +this.state.rotateX+ 'deg) rotateY(' +this.state.rotateY+ 'deg)',
-            transform: 'perspective(1000px) scale(' +this.state.scale+ ') rotateX(' +this.state.rotateX+ 'deg) rotateY(' +this.state.rotateY+ 'deg)',
+            WebkitTransform: 'perspective(1000px) scale(' + this.state.scale + ') rotateX(' + this.state.rotateX + 'deg) rotateY(' + this.state.rotateY + 'deg)',
+            MozTransform: 'perspective(1000px) scale(' + this.state.scale + ') rotateX(' + this.state.rotateX + 'deg) rotateY(' + this.state.rotateY + 'deg)',
+            transform: 'perspective(1000px) scale(' + this.state.scale + ') rotateX(' + this.state.rotateX + 'deg) rotateY(' + this.state.rotateY + 'deg)',
         }
         if (!Array.isArray(children)) {//in case of only one child, probably just the card img
             return (
@@ -98,14 +98,14 @@ export default class FloatingCard extends Component {
             const num = key+1
             const layerClassName='rbc-layer-0'+key
             const rotateX = Math.floor(this.state.rotateX/num) +1
-            const rotateY = Math.floor(this.state.rotateY/num) +1
+            const rotateY = Math.floor(this.state.rotateY/num) +1 //rotateX and Y cannot be float decimals for the transform stirngs to work
             let layerSpecificTransforms = genericTransforms // for now the image layer gets generic transforms until I can figure out better transform math that works
             if (childLayer.ref === 'text') {
                 childLayer = childLayer.props.children
                 layerSpecificTransforms = {
-                    WebkitTransform: 'perspective(1000px) scale(' +this.state.scale+ ') rotateX(' +rotateX+ ') rotateY(' +rotateY+ 'deg)',
-                    MozTransform: 'perspective(1000px) scale(' +this.state.scale+ ') rotateX(' +rotateX+ ') rotateY(' +rotateY+ 'deg)',
-                    transform: 'perspective(1000px) scale(' +this.state.scale+ ') rotateX(' +rotateX+ ') rotateY(' +rotateY+ 'deg)',
+                    WebkitTransform: 'perspective(1000px) scale(' + this.state.scale + ') rotateX(' + rotateX + ') rotateY(' + rotateY + 'deg)',
+                    MozTransform: 'perspective(1000px) scale(' + this.state.scale + ') rotateX(' + rotateX + ') rotateY(' + rotateY + 'deg)',
+                    transform: 'perspective(1000px) scale(' + this.state.scale + ') rotateX(' + rotateX + ') rotateY(' + rotateY + 'deg)',
                     textShadow: rotateY * 0.5 + 'px ' + rotateX * 0.5 + 'px 10px rgba(0, 0, 0, 0.3)'
                 }
             }
