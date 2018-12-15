@@ -1,29 +1,15 @@
 import React, { Component } from 'react'
 import ReactBusinessCard from './ReactBusinessCard'
-import cardStock from './card.jpg'
 import windowSize from 'react-window-size'
+import cardStock from './card.jpg'
 import CardContent from './CardContent'
-
-const openLinkedIn = () => {
-	window.open('https://www.linkedin.com/in/cofuente/')
-}
-const openGitHub = () => {
-	window.open('https://github.com/cofuente')
-}
-const downloadResume = (uri, name) => {
-	const link = document.createElement('a')
-	link.download = name
-	link.href = uri
-	document.body.appendChild(link)
-	link.click()
-	document.body.removeChild(link)
-}
-
- class MyRBC extends Component {
+class MyRBC extends Component {
 	render() {
 		const windowHeight = this.props.windowWidth
 		const windowWidth = this.props.windowHeight
 		const orientation = windowWidth > windowHeight ? 'landscape' : 'portrait'
+		const aspectRatio = windowWidth/windowWidth
+
 		let cardHeight = 400
 		let cardWidth = 700
 		if (orientation==="portrait") {
@@ -42,12 +28,12 @@ const downloadResume = (uri, name) => {
 				cardHeight = (cardWidth * 4)/7
 			}
 		}
-		console.log(orientation,this.props.windowWidth, this.props.windowHeight)
+		console.log(orientation, windowWidth, windowHeight, aspectRatio)
 		return (
 			<div id="rbc">
-				<ReactBusinessCard iW={cardWidth} iH={cardHeight}>
-					<img ref="image" src={cardStock} alt="THIS IS THE CARD ALT"/>
-					<CardContent />
+				<ReactBusinessCard width={cardWidth} height={cardHeight}>
+					<img ref="image" width={cardWidth} height={cardHeight} src={cardStock} alt="THIS IS THE CARD ALT"/>
+					<CardContent width={cardWidth} height={cardHeight} />
 				</ReactBusinessCard>
 			</div>
 		)

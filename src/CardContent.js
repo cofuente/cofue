@@ -18,10 +18,14 @@ const downloadResume = (uri, name) => {
 }
 
 export default class CardContent extends Component {
-	render() {
+	render(props) {
+		const textWrapStyle = {
+			width: `${this.props.width}px`,
+			height: `${this.props.height}px`
+		}
 		return (
 			<div ref="text">
-				<div className="text-wrapper">
+				<div className="text-wrapper" style={textWrapStyle}>
 					<h1 className="full_name">Chiara<br />Marcial Martínez</h1>
 					<h2 className="title">full stack software engineer</h2>
 					<p className="email">

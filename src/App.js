@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import MyRBC from './MyRBC'
 import './App.css'
+import MyRBC from './MyRBC'
 
 class App extends Component {
 	render() {

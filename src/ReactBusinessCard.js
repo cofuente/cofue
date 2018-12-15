@@ -11,8 +11,8 @@ export default class FloatingCard extends Component {
             scale: 1,
             angle: 0,
             alpha: 0,
-            width: this.props.iW,
-            height: this.props.iH,
+            width: this.props.width,
+            height: this.props.height,
         }
 
         this.handleMouseMove = this.handleMouseMove.bind(this)

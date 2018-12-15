@@ -30,13 +30,9 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 to do:
 1-implement mobile gyro transforms with movement
-2-fix scale transform size 1.03
-3-
-                        <!-- <div style={layerSpecificTransforms} className='rbc-layer-00' >
-                            {this.props.children[0]}
-                        </div>
-                        <div style={layerSpecificTransforms} className='rbc-layer-01' ref="text">
-                            {this.props.children[1].props.children}
-                        </div> -->
-4-device-too-small div
-5-line up card text perfectly
+4-populate device-too-small div w/ appropriate display
+5-line up card text w/ css
+6-before publishing: make sure responsive font sizes respond to card div and not html root element
+7-change a links to buttoons as needed for hrefs to work in CardContent.js
+8-in MyRBC.js use aspectRatios to figure out the cardwidth and height, maybe not necessary for npm package
+9-also in MyRBC: figure out which font sizes to pass into the text wrapper styles and pass those in as props. in the package we're making, this won't be necessary because we can let the user style the card text with the css classes and such
