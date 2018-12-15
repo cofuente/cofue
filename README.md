@@ -36,3 +36,4 @@ to do:
 7-change a links to buttoons as needed for hrefs to work in CardContent.js
 8-in MyRBC.js use aspectRatios to figure out the cardwidth and height, maybe not necessary for npm package
 9-also in MyRBC: figure out which font sizes to pass into the text wrapper styles and pass those in as props. in the package we're making, this won't be necessary because we can let the user style the card text with the css classes and such
+10-consider resizing the email font in card
