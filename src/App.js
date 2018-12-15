@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import MyRBC from './CardContent'
+import MyRBC from './MyRBC'
 import './App.css'
 
 class App extends Component {
