@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import MyCard from './CardContent'
+import MyRBC from './CardContent'
 import './App.css'
 
 class App extends Component {
@@ -13,7 +13,7 @@ class App extends Component {
 					<h1>So here, take my card.</h1>
 					<h1> -Go on, take it.</h1>
 				</div>
-				<MyCard />
+				<MyRBC />
 			<div id="rotate-device" />
 			<div id="screen-too-small" />
 		</div>)
