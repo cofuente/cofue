@@ -245,7 +245,7 @@ img {
 }
 
 /* display a div saying: "I'm sorry your device is screen is too small to view this page" */
-@media screen and (max-height: 318px) and (orientation: landscape) {
+@media screen and (max-height: 150px) and (orientation: landscape) {
 	#screen-too-small {
 		display: flex;
 		background-color:crimson;

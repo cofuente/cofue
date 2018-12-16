@@ -5,22 +5,20 @@ import cardStock from './card.jpg'
 import CardContent from './CardContent'
 class MyRBC extends Component {
 	render() {
-		const windowHeight = this.props.windowWidth
-		const windowWidth = this.props.windowHeight
+		const windowHeight = this.props.windowHeight
+		const windowWidth = this.props.windowWidth
 		const orientation = windowWidth > windowHeight ? 'landscape' : 'portrait'
-		const aspectRatio = windowWidth/windowWidth
-
-		let cardHeight = 400
-		let cardWidth = 700
+		const aspectRatio = windowWidth/windowHeight
+		let cardHeight, cardWidth
 		if (orientation==="portrait") {
-			cardWidth = window.screen.availWidth < 750 ? window.screen.availWidth * .9 : 700
-			cardHeight = cardWidth < 700 ? (cardWidth * 0.5714285714285714) : 400
+			cardWidth = windowWidth < 750 ? windowWidth * .9 : 700
+			cardHeight = cardWidth < 700 ? ((cardWidth * 4)/7) : 400
 		}
 		if (orientation==="landscape") {
 			if (windowHeight >= 700 ) {
 				cardWidth = 700
 				cardHeight = 400
-			} else if ((windowHeight/windowWidth) <= 0.5714285714285714 /* min aspect ratio of 7/4 */) {
+			} else if (aspectRatio >= 1.75 ) {
 				cardHeight = windowHeight * 0.9
 				cardWidth = cardHeight * 1.75
 			} else {
@@ -28,7 +26,8 @@ class MyRBC extends Component {
 				cardHeight = (cardWidth * 4)/7
 			}
 		}
-		console.log(orientation, windowWidth, windowHeight, aspectRatio)
+		console.log(orientation, aspectRatio)
+		console.log(cardWidth, cardHeight)
 		return (
 			<div id="rbc">
 				<ReactBusinessCard width={cardWidth} height={cardHeight}>

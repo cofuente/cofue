@@ -31,9 +31,9 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 to do:
 1-implement mobile gyro transforms with movement
 4-populate device-too-small div w/ appropriate display
-5-line up card text w/ css
+5-clean up css sheet, only need it for particular media q's to remove intro div
 6-
 7-change a links to buttons as needed for hrefs to work in CardContent.js
-8-in MyRBC.js use aspectRatios to figure out the cardwidth and height, maybe not necessary for npm package
+8-
 9-
 10-consider resizing the email font in card
