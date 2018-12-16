@@ -190,6 +190,8 @@ img {
 }
 
 .link_button {
+	background:none!important;
+	border:none;
 	align-items: center;
 	cursor: pointer;
 	display: flex;
@@ -226,7 +228,7 @@ img {
 
 /* -------------------------------------------- MEDIA Q'S -------------------------------------------- */
 /* display a div saying: "I'm sorry your device is screen is too small to view this page" */
-@media screen and (max-width: 209px) and (orientation: portrait){
+@media screen and (max-width: 150px) and (orientation: portrait){
 	#screen-too-small {
 		display: flex;
 		background-color:crimson;

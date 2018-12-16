@@ -34,15 +34,15 @@ export default class CardContent extends Component {
 						<a href="mailto:contact@cofuente.io">contact@cofuente.io</a>
 					</p>
 					<div className="link_buttons">
-						<a className="link_button" onClick={() => openGitHub()} aria-label="Check out my Repos">
+						<button className="link_button" onClick={() => openGitHub()} aria-label="Check out my Repos">
 							<GithubIcon className="item" />
-						</a>
-						<a className="link_button" onClick={() => downloadResume(cwd, 'chiaramarcialmartínez.pdf')} aria-label={`Download my Résumé`}>
+						</button>
+						<button className="link_button" onClick={() => downloadResume(cwd, 'chiaramarcialmartínez.pdf')} aria-label={`Download my Résumé`}>
 							<ResumeIcon className="item" />
-						</a>
-						<a className="link_button" onClick={() => openLinkedIn()} aria-label={`I'm on LinkedIn too.`}>
+						</button>
+						<button className="link_button" onClick={() => openLinkedIn()} aria-label={`I'm on LinkedIn too.`}>
 							<LinkedinIcon className="item" />
-						</a>
+						</button>
 					</div>
 				</div>
 			</div>

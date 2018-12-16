@@ -33,7 +33,7 @@ to do:
 4-populate device-too-small div w/ appropriate display
 5-clean up css sheet, only need it for particular media q's to remove intro div
 6-
-7-change a links to buttons as needed for hrefs to work in CardContent.js
+7-
 8-
 9-
 10-consider resizing the email font in card
