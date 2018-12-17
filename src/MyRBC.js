@@ -31,7 +31,7 @@ class MyRBC extends Component {
 		return (
 			<div id="rbc">
 				<ReactBusinessCard width={cardWidth} height={cardHeight}>
-					<img ref="image" width={cardWidth} height={cardHeight} src={cardStock} alt="THIS IS THE CARD ALT"/>
+					<img ref="image" width={cardWidth} height={cardHeight} src={cardStock} alt="The lovely card stock I picked for this printing. Like it?"/>
 					<CardContent width={cardWidth} height={cardHeight} />
 				</ReactBusinessCard>
 			</div>

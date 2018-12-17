@@ -178,6 +178,9 @@ img {
 	flex-direction: row;
 	justify-content: space-around;
 }
+.link_button:focus {
+	outline:0;
+}
 .link_button {
 	background:none!important;
 	border:none;
@@ -247,7 +250,7 @@ img {
 	}
 }
 /*when its not tall enough to accomodate both */
-/* @media screen and (max-height: 750px) {
+@media screen and (max-height: 750px) {
 	#intro {
 		display: none;
 	}
@@ -255,9 +258,9 @@ img {
 		-webkit-animation-delay:0s;
 		animation-delay:0s;
 	}
-} */
+}
 /*when its not wide enough to accomodate the intro text, because the card itself resizes automatically */
-/* @media screen and (max-width: 650px) {
+@media screen and (max-width: 650px) {
 	#intro {
 		display: none;
 	}
@@ -265,7 +268,7 @@ img {
 		-webkit-animation-delay:0s;
 		animation-delay:0s;
 	}
-} */
+}
 @media screen and (max-height: 900px) and (orientation: portrait) {
 	#super {
 		padding: 0;
