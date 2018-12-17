@@ -31,9 +31,9 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 to do:
 1-implement mobile gyro transforms with movement
 4-populate device-too-small div w/ appropriate display
-5-clean up css sheet, only need it for particular media q's to remove intro div
-6-
-7-
-8-
+5-also populate rotate your screen div
+6-make media q's to display rotate div accordingly
+7-figure out what's up with the text shadows
+8-resize root rem at html to affect intro and border radii on img and lighting to match
 9-
-10-consider resizing the email font in card
+10-
