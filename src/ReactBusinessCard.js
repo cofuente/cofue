@@ -11,8 +11,8 @@ export default class FloatingCard extends Component {
             scale: 1,
             angle: 0,
             alpha: 0,
-            width: this.props.iW,
-            height: this.props.iH,
+            width: this.props.width,
+            height: this.props.height,
         }
 
         this.handleMouseMove = this.handleMouseMove.bind(this)
@@ -63,7 +63,7 @@ export default class FloatingCard extends Component {
             rotateY : rotateY,
             shadowMovement : shadowMovement,
             shadowSize : shadowSize,
-            scale:  1.03, // How large to scale the item: 1.00 -> 1.10~        from config.scale
+            scale:  1.03, // How large to scale the item once hovered: 1.00 -> 1.10~
             angle: angleDeg,
             alpha: alpha,
         })
@@ -87,7 +87,7 @@ export default class FloatingCard extends Component {
             MozTransform: 'perspective(1000px) scale(' + this.state.scale + ') rotateX(' + this.state.rotateX + 'deg) rotateY(' + this.state.rotateY + 'deg)',
             transform: 'perspective(1000px) scale(' + this.state.scale + ') rotateX(' + this.state.rotateX + 'deg) rotateY(' + this.state.rotateY + 'deg)',
         }
-        if (!Array.isArray(children)) {//in case of only one child, probably just the card img
+        if (!Array.isArray(children)) {//in case of only one child, likely just the card img
             return (
                 <div style={genericTransforms} className='rbc-layer-solo' >
                     {children}
@@ -97,8 +97,8 @@ export default class FloatingCard extends Component {
         return children.map( (childLayer, key) => {
             const num = key+1
             const layerClassName='rbc-layer-0'+key
-            const rotateX = Math.floor(this.state.rotateX/num) +1
-            const rotateY = Math.floor(this.state.rotateY/num) +1 //rotateX and Y cannot be float decimals for the transform stirngs to work
+            const rotateX = Math.floor(this.state.rotateX/num)
+            const rotateY = Math.floor(this.state.rotateY/num)
             let layerSpecificTransforms = genericTransforms // for now the image layer gets generic transforms until I can figure out better transform math that works
             if (childLayer.ref === 'text') {
                 childLayer = childLayer.props.children

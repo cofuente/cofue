@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import ReactBusinessCard from './ReactBusinessCard'
 import { GithubIcon, LinkedinIcon, ResumeIcon } from './Icons'
-import cardStock from './card.jpg'
 import cwd from './cwd.pdf'
 
 const openLinkedIn = () => {
@@ -19,59 +17,34 @@ const downloadResume = (uri, name) => {
 	document.body.removeChild(link)
 }
 
-export default class MyCard extends Component {
+export default class CardContent extends Component {
 	render() {
-		const orientation = window.screen.orientation.type
-		let cardHeight, cardWidth
-		switch(orientation){
-			case 'portrait-primary':
-console.log(window.screen.availWidth, window.screen.availHeight, 'this is portrait')
-				cardWidth = window.screen.availWidth < 750 ? window.screen.availWidth * .9 : 700
-				cardHeight = cardWidth < 700 ? (cardWidth * 0.5714285714285714) : 400
-				break
-			case 'landscape-primary':
-console.log(window.screen.availWidth, window.screen.availHeight, 'this is landscape')
-				if (window.screen.availHeight >= 700 ){
-					cardWidth = 700
-					cardHeight = 400
-				} else if ((window.screen.availHeight/window.screen.availWidth) <= 0.5714285714285714 /* min aspect ratio of 7/4 */) {
-					cardHeight = window.screen.availHeight * 0.9
-					cardWidth = cardHeight * 1.75
-				} else {
-					cardWidth = window.screen.availWidth * 0.9
-					cardHeight = (cardWidth * 4)/7
-				}
-				break
-			default:
-				cardHeight = 400
-				cardWidth = 700
+		let idealFontSize = Math.round(this.props.width/70)
+		const textWrapStyle = {
+			width: `${this.props.width}px`,
+			height: `${this.props.height}px`,
+			fontSize: `${idealFontSize}px`
 		}
-		console.log(cardWidth, cardHeight)
 		return (
-			<div id="main">
-				<ReactBusinessCard iW={cardWidth} iH={cardHeight}>
-					<img ref="image" src={cardStock} alt="THIS IS THE CARD ALT"/>
-					<div ref="text">
-						<div className="text-wrapper">
-							<h1 className="full_name">Chiara<br />Marcial Martínez</h1>
-							<h2 className="title">full stack software engineer</h2>
-							<p className="email">
-								<a href="mailto:contact@cofuente.io">contact@cofuente.io</a>
-							</p>
-							<div className="link_buttons">
-                                <a className="link_button" onClick={() => openGitHub()} aria-label="Check out my Repos">
-                                    <GithubIcon className="item" />
-                                </a>
-								<a className="link_button" onClick={() => downloadResume(cwd, 'chiaramarcialmartínez.pdf')} aria-label={`Download my Résumé`}>
-									<ResumeIcon className="item" />
-								</a>
-                                <a className="link_button" onClick={() => openLinkedIn()} aria-label={`I'm on LinkedIn too.`}>
-                                    <LinkedinIcon className="item" />
-                                </a>
-							</div>
-						</div>
+			<div ref="text">
+				<div className="text-wrapper" style={textWrapStyle}>
+					<h1 className="full_name">Chiara<br />Marcial Martínez</h1>
+					<h2 className="title">full stack software engineer</h2>
+					<p className="email">
+						<a href="mailto:contact@cofuente.io">contact@cofuente.io</a>
+					</p>
+					<div className="link_buttons">
+						<button className="link_button" onClick={() => openGitHub()} aria-label="Check out my Repos">
+							<GithubIcon className="item" />
+						</button>
+						<button className="link_button" onClick={() => downloadResume(cwd, 'chiaramarcialmartínez.pdf')} aria-label={`Download my Résumé`}>
+							<ResumeIcon className="item" />
+						</button>
+						<button className="link_button" onClick={() => openLinkedIn()} aria-label={`I'm on LinkedIn too.`}>
+							<LinkedinIcon className="item" />
+						</button>
 					</div>
-				</ReactBusinessCard>
+				</div>
 			</div>
 		)
 	}
