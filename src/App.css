@@ -5,7 +5,6 @@
 	-moz-osx-font-smoothing: grayscale;
 	box-sizing: border-box;
 }
-
 html {
 	-webkit-animation: color-change-3x 4s linear infinite alternate both;
 	animation: color-change-3x 4s linear infinite alternate both;
@@ -16,7 +15,6 @@ html {
 	margin: 0;
 	padding: 0;
 }
-
 body {
 	font-family: 'Comfortaa', cursive;
 	margin: 0;
@@ -24,7 +22,6 @@ body {
 	width: 100%;
 	height:100%;
 }
-
 #root {
 	margin: 0;
 	padding: 0;
@@ -33,7 +30,6 @@ body {
     overflow: hidden;
     position:fixed;
 }
-
 #super {
 	display: flex;
 	flex-direction: column;
@@ -44,7 +40,6 @@ body {
 	width: 100%;
 	height:100%;
 }
-
 #intro {
 	display: flex;
 	flex-direction: column;
@@ -53,7 +48,12 @@ body {
 	margin: 0;
 }
 
+#mobile-intro {
+	display: none;
+}
+
 /* -------------------------------------------- RBC CSS -------------------------------------------- */
+
 #rbc {
 	padding: 0;
 	margin: 0;
@@ -65,14 +65,12 @@ body {
 .rbc-outer {
 	transform-style: preserve-3d;
 }
-
 .rbc-wrapper {
 	position: relative;
 	margin: 0;
 	padding: 0;
 	transition: all 0.3s ease-out;
 }
-
 .rbc-shadow {
 	width: 90%;
 	height: 90%;
@@ -86,12 +84,10 @@ body {
 	border: 1px solid #e1e1e1;
 	transition: all 0.3s ease-out;
 }
-
 .rbc-layers {
 	width: 100%;
 	height: 100%;
 }
-
 .rbc-layer-solo {
 	width: 100%;
 	height: 100%;
@@ -101,7 +97,6 @@ body {
 	bottom: 0;
 	right: 0;
 }
-
 .rbc-layer-00 {
 	width: 100%;
 	height: 100%;
@@ -111,11 +106,9 @@ body {
 	bottom: 0;
 	right: 0;
 }
-
 img {
 	border-radius: 2.75rem;
 }
-
 .rbc-layer-01 {
 	width: 100%;
 	height: 100%;
@@ -133,7 +126,6 @@ img {
 	color: #ffffff;
 	z-index:1;
 }
-
 .text-wrapper {
 	display: flex;
 	flex-wrap: wrap;
@@ -149,7 +141,8 @@ img {
 	/* width: 100%; */
 }
 
-/* -------------------------------------------- RBC CARD TEXT & ICONS -------------------------------------------- */
+/* ------------------------------------- RBC CARD TEXT & ICONS ------------------------------------- */
+
 .full_name,
 .title,
 .email {
@@ -157,40 +150,34 @@ img {
 	text-align: center;
 	text-shadow: inherit;
 }
-
 .full_name {
 	font-family: 'Libre Baskerville', serif;
 	font-size: 4em;
     margin-block-start: 1em;
     margin-block-end: 0em;
 }
-
 .title {
 	font-size: 3.5em;
 	letter-spacing: 0.05em;
     margin-block-start: 0.3em;
     margin-block-end: 0;
 }
-
 .email {
 	font-size: 2.5em;
 	letter-spacing: 0.15em;
     margin-block-end: 0em;
     margin-block-start: .5em;
 }
-
 .email > a {
 	text-decoration: none;
 	color: rgb(255, 255, 255);
 }
-
 .link_buttons {
 	display: flex;
 	flex-basis: 75%;
 	flex-direction: row;
 	justify-content: space-around;
 }
-
 .link_button {
 	background:none!important;
 	border:none;
@@ -221,15 +208,14 @@ img {
 		padding: 0;
 		margin: 0;
 }
-
 #screen-too-small {
 		display: none;
 		padding: 0;
 		margin: 0;
 }
-
-/* -------------------------------------------- MEDIA Q'S -------------------------------------------- */
+/* ------------------------------------------- MEDIA Q'S ------------------------------------------- */
 /* display a div saying: "I'm sorry your device is screen is too small to view this page" */
+
 @media screen and (max-width: 150px) and (orientation: portrait){
 	#screen-too-small {
 		display: flex;
@@ -240,8 +226,6 @@ img {
 	}
 	#intro {
 		display: none;
-		padding: 0;
-		margin: 0;
 	}
 	#rbc {
 		display: none;
@@ -257,14 +241,31 @@ img {
 	}
 	#intro {
 		display: none;
-		padding: 0;
-		margin: 0;
 	}
 	#rbc {
 		display: none;
 	}
 }
-
+/*when its not tall enough to accomodate both */
+@media screen and (max-height: 750px) {
+	#intro {
+		display: none;
+	}
+	#rbc {
+		-webkit-animation-delay:0s;
+		animation-delay:0s;
+	}
+}
+/*when its not wide enough to accomodate the intro text, because the card itself resizes automatically */
+@media screen and (max-width: 650px) {
+	#intro {
+		display: none;
+	}
+	#rbc {
+		-webkit-animation-delay:0s;
+		animation-delay:0s;
+	}
+}
 /* @media screen and (max-height: ?px) and (orientation: portrait) {
 	#super {
 		padding: 0;
@@ -292,7 +293,6 @@ img {
 		height: 50vh;
 	}
 } */
-
 /* @media screen and (max-height: ?px) and (orientation: landscape) {
 	#super {
 		padding: 0;
@@ -321,7 +321,27 @@ img {
 	}
 } */
 
-/* -------------------------------------------- TYPING EFFECT -------------------------------------------- */
+/* mobile-into alternative, will only work in landscape , add a "click here" neon flash div to have them click and see card?*/
+/* @media screen and (max-width: 570px) and (orientation: landscape) {
+	#intro {
+		display:none;
+	}
+	#mobile-intro {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding:0;
+		margin: 0;
+	}
+	#rbc {
+		display: none;
+	}
+	.css-typing2 h1 {
+		font-size: 5vw;
+	}
+} */
+
+/* ----------------------------------------- TYPING EFFECT ----------------------------------------- */
 .css-typing h1 {
 	border-right: 0.15rem solid orange;
 	font-family: 'Bungee Hairline', cursive;
@@ -351,7 +371,7 @@ img {
 	animation-fill-mode: forwards;
 }
 .css-typing h1:nth-child(3) {
-	width: 29em;
+	width: 27.5em;
 	opacity: 0;
 	-webkit-animation: type2 2s steps(40, end);
 	animation: type2 2s steps(40, end);
@@ -361,7 +381,7 @@ img {
 	animation-fill-mode: forwards;
 }
 .css-typing h1:nth-child(4) {
-	width: 13.4em;
+	width: 13em;
 	opacity: 0;
 	-webkit-animation: type2 1s steps(40, end);
 	animation: type2 1s steps(40, end);
@@ -371,7 +391,7 @@ img {
 	animation-fill-mode: forwards;
 }
 .css-typing h1:nth-child(5) {
-	width: 9em;
+	width: 8.8em;
 	opacity: 0;
 	-webkit-animation: type3 2s steps(20, end),
 		blink 0.5s step-end infinite alternate;
@@ -382,7 +402,67 @@ img {
 	animation-fill-mode: forwards;
 }
 
-/* -------------------------------------------- ANIMISTA KEYFRAMES -------------------------------------------- */
+.css-typing2 h1 {
+	border-right: 0.15rem solid orange;
+	font-family: 'Bungee Hairline', cursive;
+	font-size: 2.3rem;
+	margin: 0 auto;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.css-typing2 h1:nth-child(1) {
+	width: 10.3em; /* all of these width properties are required for the 'typing' animation to work */
+	opacity: 0;
+	-webkit-animation: type2 1.5s steps(40, end);
+	animation: type2 1.5s steps(40, end);
+	-webkit-animation-delay: 0.1s;
+	animation-delay: 0.1s;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+.css-typing2 h1:nth-child(2) {
+	width: 11.8em;
+	opacity: 0;
+	-webkit-animation: type2 1s steps(40, end);
+	animation: type2 1s steps(40, end);
+	-webkit-animation-delay: 1.6s;
+	animation-delay: 1.6s;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+.css-typing2 h1:nth-child(3) {
+	width: 12em;
+	opacity: 0;
+	-webkit-animation: type2 1s steps(40, end);
+	animation: type2 1s steps(40, end);
+	-webkit-animation-delay: 3.9s;
+	animation-delay: 3.9s;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+.css-typing2 h1:nth-child(4) {
+	width: 15.4em;
+	opacity: 0;
+	-webkit-animation: type2 2s steps(40, end);
+	animation: type2 2s steps(40, end);
+	-webkit-animation-delay: 5.25s;
+	animation-delay: 5.25s;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+.css-typing2 h1:nth-child(5) {
+	width: 19.8em;
+	opacity: 0;
+	-webkit-animation: type3 2s steps(20, end),
+		blink 0.5s step-end infinite alternate;
+	animation: type3 2s steps(20, end), blink 0.5s step-end infinite alternate;
+	-webkit-animation-delay: 7.1s;
+	animation-delay: 7.1s;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+
+/* ---------------------------------------- ANIMISTA FRAMES ---------------------------------------- */
 /* ----------------------------------------------
  * Generated by Animista on 2018-12-1 23:12:36
  * w: http://animista.net, t: @cssanimista

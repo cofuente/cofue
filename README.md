@@ -32,8 +32,8 @@ to do:
 1-implement mobile gyro transforms with movement
 4-populate device-too-small div w/ appropriate display
 5-also populate rotate your screen div
-6-make media q's to display rotate div accordingly
-7-figure out what's up with the text shadows
-8-resize root rem at html to affect intro and border radii on img and lighting to match
-9-
+6-finish media q's to display rotate div accordingly
+7-decide on alt mobile intro greeting
+8-make media q's to display the alt intro text on mobile in time
+9-figure out what's up with the text shadows
 10-
