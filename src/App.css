@@ -247,7 +247,7 @@ img {
 	}
 }
 /*when its not tall enough to accomodate both */
-@media screen and (max-height: 750px) {
+/* @media screen and (max-height: 750px) {
 	#intro {
 		display: none;
 	}
@@ -255,9 +255,9 @@ img {
 		-webkit-animation-delay:0s;
 		animation-delay:0s;
 	}
-}
+} */
 /*when its not wide enough to accomodate the intro text, because the card itself resizes automatically */
-@media screen and (max-width: 650px) {
+/* @media screen and (max-width: 650px) {
 	#intro {
 		display: none;
 	}
@@ -265,8 +265,8 @@ img {
 		-webkit-animation-delay:0s;
 		animation-delay:0s;
 	}
-}
-/* @media screen and (max-height: ?px) and (orientation: portrait) {
+} */
+@media screen and (max-height: 900px) and (orientation: portrait) {
 	#super {
 		padding: 0;
 		margin: 0;
@@ -292,7 +292,7 @@ img {
 		width: 50vh;
 		height: 50vh;
 	}
-} */
+}
 /* @media screen and (max-height: ?px) and (orientation: landscape) {
 	#super {
 		padding: 0;
