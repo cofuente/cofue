@@ -21,7 +21,7 @@ class App extends Component {
 					<h1>You probably want my card, huh?</h1>
 				</div>
 				<MyRBC />
-			<div id="rotate-device" />
+			<div id="rotate-device" >Rotate Your Device<br/>🔄</div>
 			<div id="screen-too-small" />
 		</div>)
 	}
