@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import ReactBusinessCard from './ReactBusinessCard'
-import windowSize from 'react-window-size'
 import cardStock from './card.jpg'
 import CardContent from './CardContent'
 class MyRBC extends Component {
 	render() {
-		const windowHeight = this.props.windowHeight
-		const windowWidth = this.props.windowWidth
+		const windowHeight = window.innerHeight
+		const windowWidth = window.innerWidth
 		const orientation = windowWidth > windowHeight ? 'landscape' : 'portrait'
 		const aspectRatio = windowWidth/windowHeight
 		let cardHeight, cardWidth
@@ -37,4 +36,4 @@ class MyRBC extends Component {
 	}
 }
 
-export default windowSize(MyRBC)
+export default MyRBC
