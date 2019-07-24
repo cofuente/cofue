@@ -41,7 +41,7 @@ body {
 	height:100%;
 }
 #intro {
-	display: flex;
+	display: none;
 	flex-direction: column;
 	align-items: center;
 	padding:0;
