@@ -1,6 +1,6 @@
 # cofuente.io
 
-This is the open source code of my website.
+This is the open source code of my personal page.
 
 ### Installing
 
@@ -19,7 +19,6 @@ npm run start
 - [Google Fonts](https://fonts.google.com/) - Open Source Fonts
 
 ## Authors
-
 - **Chiara Marcial Martínez** - [cofuente](https://github.com/cofuente)
 
 ## License
