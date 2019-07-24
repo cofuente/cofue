@@ -239,7 +239,7 @@ img {
   animation-fill-mode: forwards;
 }
 .css-typing h1:nth-child(3) {
-  width: 27.5em;
+  width: 28.5em;
   opacity: 0;
   -webkit-animation: type2 2s steps(40, end);
   -moz-animation: type2 2s steps(40, end);
