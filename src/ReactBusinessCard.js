@@ -83,9 +83,11 @@ export default class FloatingCard extends Component {
 
     renderCardContent(children) {
         const genericTransforms = {
-            WebkitTransform: 'perspective(1000px) scale(' + this.state.scale + ') rotateX(' + this.state.rotateX + 'deg) rotateY(' + this.state.rotateY + 'deg)',
-            MozTransform: 'perspective(1000px) scale(' + this.state.scale + ') rotateX(' + this.state.rotateX + 'deg) rotateY(' + this.state.rotateY + 'deg)',
-            transform: 'perspective(1000px) scale(' + this.state.scale + ') rotateX(' + this.state.rotateX + 'deg) rotateY(' + this.state.rotateY + 'deg)',
+          WebkitTransform: 'perspective(1000px) scale3d(' + this.state.scale + ', ' + this.state.scale + ', ' + this.state.scale + ') rotateX(' + this.state.rotateX + 'deg) rotateY(' + this.state.rotateY + 'deg)',
+          MozTransform: 'perspective(1000px) scale3d(' + this.state.scale + ', ' + this.state.scale + ', ' + this.state.scale + ') rotateX(' + this.state.rotateX + 'deg) rotateY(' + this.state.rotateY + 'deg)',
+          MsTransform: 'perspective(1000px) scale3d(' + this.state.scale + ', ' + this.state.scale + ', ' + this.state.scale + ') rotateX(' + this.state.rotateX + 'deg) rotateY(' + this.state.rotateY + 'deg)',
+          OTransform: 'perspective(1000px) scale3d(' + this.state.scale + ', ' + this.state.scale + ', ' + this.state.scale + ') rotateX(' + this.state.rotateX + 'deg) rotateY(' + this.state.rotateY + 'deg)',
+          transform: 'perspective(1000px) scale3d(' + this.state.scale + ', ' + this.state.scale + ', ' + this.state.scale + ') rotateX(' + this.state.rotateX + 'deg) rotateY(' + this.state.rotateY + 'deg)',
         }
         if (!Array.isArray(children)) {//in case of only one child, likely just the card img
             return (
@@ -103,10 +105,12 @@ export default class FloatingCard extends Component {
             if (childLayer.ref === 'text') {
                 childLayer = childLayer.props.children
                 layerSpecificTransforms = {
-                    WebkitTransform: 'perspective(1000px) scale(' + this.state.scale + ') rotateX(' + rotateX + ') rotateY(' + rotateY + 'deg)',
-                    MozTransform: 'perspective(1000px) scale(' + this.state.scale + ') rotateX(' + rotateX + ') rotateY(' + rotateY + 'deg)',
-                    transform: 'perspective(1000px) scale(' + this.state.scale + ') rotateX(' + rotateX + ') rotateY(' + rotateY + 'deg)',
-                    textShadow: rotateY * 0.5 + 'px ' + rotateX * 0.5 + 'px 10px rgba(0, 0, 0, 0.3)'
+                  WebkitTransform: 'perspective(1000px) scale3d(' + this.state.scale + ', ' + this.state.scale + ', ' + this.state.scale + ') rotateX(' + rotateX + ') rotateY(' + rotateY + 'deg)',
+                  MozTransform: 'perspective(1000px) scale3d(' + this.state.scale + ', ' + this.state.scale + ', ' + this.state.scale + ') rotateX(' + rotateX + ') rotateY(' + rotateY + 'deg)',
+                  MsTransform: 'perspective(1000px) scale3d(' + this.state.scale + ', ' + this.state.scale + ', ' + this.state.scale + ') rotateX(' + rotateX + ') rotateY(' + rotateY + 'deg)',
+                  OTransform: 'perspective(1000px) scale3d(' + this.state.scale + ', ' + this.state.scale + ', ' + this.state.scale + ') rotateX(' + rotateX + ') rotateY(' + rotateY + 'deg)',
+                  transform: 'perspective(1000px) scale3d(' + this.state.scale + ', ' + this.state.scale + ', ' + this.state.scale + ') rotateX(' + rotateX + ') rotateY(' + rotateY + 'deg)',
+                  textShadow: rotateY * 0.5 + 'px ' + rotateX * 0.5 + 'px 10px rgba(0, 0, 0, 0.3)'
                 }
             }
             return (
@@ -120,9 +124,11 @@ export default class FloatingCard extends Component {
 
 	render() {
         const genericTransforms = {
-            WebkitTransform: 'perspective(1000px) scale(' +this.state.scale+ ') rotateX(' +this.state.rotateX+ 'deg) rotateY(' +this.state.rotateY+ 'deg)',
-            MozTransform: 'perspective(1000px) scale(' +this.state.scale+ ') rotateX(' +this.state.rotateX+ 'deg) rotateY(' +this.state.rotateY+ 'deg)',
-            transform: 'perspective(1000px) scale(' +this.state.scale+ ') rotateX(' +this.state.rotateX+ 'deg) rotateY(' +this.state.rotateY+ 'deg)',
+          WebkitTransform: 'perspective(1000px) scale3d(' + this.state.scale + ', ' + this.state.scale + ', ' + this.state.scale + ') rotateX(' +this.state.rotateX+ 'deg) rotateY(' +this.state.rotateY+ 'deg)',
+          MozTransform: 'perspective(1000px) scale3d(' + this.state.scale + ', ' + this.state.scale + ', ' + this.state.scale + ') rotateX(' +this.state.rotateX+ 'deg) rotateY(' +this.state.rotateY+ 'deg)',
+          MsTransform: 'perspective(1000px) scale3d(' + this.state.scale + ', ' + this.state.scale + ', ' + this.state.scale + ') rotateX(' +this.state.rotateX+ 'deg) rotateY(' +this.state.rotateY+ 'deg)',
+          OTransform: 'perspective(1000px) scale3d(' + this.state.scale + ', ' + this.state.scale + ', ' + this.state.scale + ') rotateX(' +this.state.rotateX+ 'deg) rotateY(' +this.state.rotateY+ 'deg)',
+          transform: 'perspective(1000px) scale3d(' + this.state.scale + ', ' + this.state.scale + ', ' + this.state.scale + ') rotateX(' +this.state.rotateX+ 'deg) rotateY(' +this.state.rotateY+ 'deg)',
         }
         const rbcWrapperStyle = Object.assign({}, {
             width: this.state.width,
