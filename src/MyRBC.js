@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ReactBusinessCard from './ReactBusinessCard'
-import cardStock from './card.jpg'
+import cardStock from './card.png'
 import CardContent from './CardContent'
 class MyRBC extends Component {
 	render() {
