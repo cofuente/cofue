@@ -23,8 +23,12 @@ body {
 	height:100%;
 }
 #root {
-    overflow: hidden;
-    position:fixed;
+  margin: 0;
+	padding: 0;
+	width: 100%;
+	height:100%;
+  overflow: hidden;
+  position:fixed;
 }
 #super {
 	display: flex;
@@ -43,20 +47,14 @@ body {
 	padding:0;
 	margin: 0;
 }
-
-#mobile-intro {
-	display: none;
-}
-
 /* -------------------------------------------- RBC CSS -------------------------------------------- */
-
 #rbc {
 	padding: 0;
 	margin: 0;
 	-webkit-animation: bounce-in-bottom 1.1s both;
 	animation: bounce-in-bottom 1.1s both;
-	-webkit-animation-delay:7.2s;
-	animation-delay:7.2s;
+	/* -webkit-animation-delay: 7.2s;
+	animation-delay: 7.2s; */
 }
 .rbc-outer {
 	transform-style: preserve-3d;
@@ -113,28 +111,17 @@ img {
 	left: 0;
 	bottom: 0;
 	right: 0;
-	/* display: flex;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	margin: 0;
-	padding: 0; */
 	color: #ffffff;
 	z-index:1;
 }
 .text-wrapper {
 	display: flex;
 	flex-wrap: wrap;
-	/* position: relative; */
 	top: 0;
 	left: 0;
 	bottom: 0;
 	right: 0;
-	/* height: 100%; */
 	justify-content: center;
-	/* padding: 0; */
-	/* margin: 0; */
-	/* width: 100%; */
 }
 
 /* ------------------------------------- RBC CARD TEXT & ICONS ------------------------------------- */
@@ -200,6 +187,144 @@ img {
 	bottom: 0;
 	right: 0;
 }
+/* -------------------------------------------------------------------- */
+
+#rotate-device {
+		display: none;
+		padding: 0;
+		margin: 0;
+}
+#screen-too-small {
+		display: none;
+		padding: 0;
+		margin: 0;
+}
+/* ------------------------------------------- MEDIA Q'S ------------------------------------------- */
+/* display a div saying: "I'm sorry your device is screen is too small to view this page" */
+@media screen and (max-width: 150px) and (orientation: portrait){
+	#screen-too-small {
+		display: flex;
+		background-color:crimson;
+		padding:5%;
+		width: 90vw;
+		height: 90vw;
+	}
+	#intro {
+		display: none;
+	}
+	#rbc {
+		display: none;
+	}
+}
+@media screen and (max-height: 150px) and (orientation: landscape) {
+	#screen-too-small {
+		display: flex;
+		background-color:crimson;
+		padding:5%;
+		width: 90vh;
+		height: 90vh;
+	}
+	#intro {
+		display: none;
+	}
+	#rbc {
+		display: none;
+	}
+}
+/*when its not tall enough to accomodate both */
+@media screen and (max-height: 750px) {
+	#intro {
+		display: none;
+	}
+	#rbc {
+		-webkit-animation-delay:0s;
+		animation-delay:0s;
+	}
+}
+/*when its not wide enough to accomodate the intro text, because the card itself resizes automatically */
+@media screen and (max-width: 650px) {
+	#intro {
+		display: none;
+	}
+	#rbc {
+		-webkit-animation-delay:0s;
+		animation-delay:0s;
+	}
+}
+@media screen and (max-height: 900px) and (orientation: portrait) {
+	#super {
+		padding: 0;
+		margin: 0;
+	}
+	#intro {
+		display: none;
+		width: 0;
+		height: 0;
+		padding: 0;
+		margin: 0;
+	}
+	#rbc {
+		display: none;
+		width: 0;
+		height: 0;
+		padding: 0;
+		margin: 0;
+	}
+	#rotate-device{
+		display: flex;
+		background-color:coral;
+		padding:5%;
+		width: 50vh;
+		height: 50vh;
+	}
+}
+/* @media screen and (max-height: ?px) and (orientation: landscape) {
+	#super {
+		padding: 0;
+		margin: 0;
+	}
+	#intro {
+		display: none;
+		width: 0;
+		height: 0;
+		padding: 0;
+		margin: 0;
+	}
+	#rbc {
+		display: none;
+		width: 0;
+		height: 0;
+		padding: 0;
+		margin: 0;
+	}
+	#rotate-device{
+		display: flex;
+		background-color:coral;
+		padding:5%;
+		width: 50vh;
+		height: 50vh;
+	}
+} */
+
+/* mobile-into alternative, will only work in landscape , add a "click here" neon flash div to have them click and see card?*/
+/* @media screen and (max-width: 570px) and (orientation: landscape) {
+	#intro {
+		display:none;
+	}
+	#mobile-intro {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding:0;
+		margin: 0;
+	}
+	#rbc {
+		display: none;
+	}
+	.css-typing2 h1 {
+		font-size: 5vw;
+	}
+} */
 
 /* ----------------------------------------- TYPING EFFECT ----------------------------------------- */
 .css-typing h1 {
