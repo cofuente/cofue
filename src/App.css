@@ -175,7 +175,6 @@ img {
 	text-shadow: inherit;
 	color: rgb(255, 255, 255);
 }
-/* -------------------------------------------------------------------- */
 
 .rbc-lighting {
 	border-radius: 2.75rem;
@@ -187,9 +186,9 @@ img {
 	bottom: 0;
 	right: 0;
 }
-/* -------------------------------------------------------------------- */
 
 /* ----------------------------------------- TYPING EFFECT ----------------------------------------- */
+/* all of these width properties below are required for the 'typing' animation to work */
 .css-typing h1 {
 	border-right: 0.15rem solid orange;
 	font-family: 'Bungee Hairline', cursive;
@@ -199,7 +198,7 @@ img {
 	overflow: hidden;
 }
 .css-typing h1:nth-child(1) {
-	width: 10.3em; /* all of these width properties are required for the 'typing' animation to work */
+	width: 10.3em;
 	opacity: 0;
 	-webkit-animation: type2 1s steps(40, end);
 	animation: type2 1s steps(40, end);
@@ -259,7 +258,7 @@ img {
 	overflow: hidden;
 }
 .css-typing2 h1:nth-child(1) {
-	width: 10.3em; /* all of these width properties are required for the 'typing' animation to work */
+	width: 10.3em;
 	opacity: 0;
 	-webkit-animation: type2 1.5s steps(40, end);
 	animation: type2 1.5s steps(40, end);
