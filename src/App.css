@@ -109,6 +109,7 @@ body {
 }
 img {
   border-radius: 2.75rem;
+  image-rendering: auto;
 }
 .rbc-layer-01 {
   width: 100%;
