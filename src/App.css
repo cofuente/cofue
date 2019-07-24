@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Bungee+Hairline|Comfortaa:700|Libre+Baskerville:700');
 
 * {
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: auto;
+	-moz-osx-font-smoothing: auto;
 	box-sizing: border-box;
 }
 html {
