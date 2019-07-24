@@ -19,11 +19,11 @@ const downloadResume = (uri, name) => {
 
 export default class CardContent extends Component {
 	render() {
-		let idealFontSize = Math.round(this.props.width/70)
+		let proportionedFontSize = Math.round(this.props.width/70)
 		const textWrapStyle = {
 			width: `${this.props.width}px`,
 			height: `${this.props.height}px`,
-			fontSize: `${idealFontSize}px`
+			fontSize: `${proportionedFontSize}px`
 		}
 		return (
 			<div ref="text">
