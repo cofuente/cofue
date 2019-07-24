@@ -26,8 +26,6 @@ class MyRBC extends Component {
 				cardHeight = (cardWidth * 4)/7
 			}
 		}
-		// console.log(orientation, aspectRatio)
-		// console.log(cardWidth, cardHeight)
 		return (
 			<div id="rbc">
 				<ReactBusinessCard width={cardWidth} height={cardHeight}>
