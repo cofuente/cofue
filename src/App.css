@@ -65,16 +65,11 @@ body {
   */
 }
 .rbc-outer {
-  transform-style: preserve-3d;
+  transform-style: flat;
 }
 .rbc-wrapper {
   position: relative;
-  margin: 0;
-  padding: 0;
   transition: transform 100ms ease-out 0s;
-  will-change: transform;
-  /* perhaps the outline makes a difference w/ firefox transition property, perhaps it does not*/
-  /* outline: 1px solid transparent; */
 }
 .rbc-shadow {
   width: 90%;
@@ -86,11 +81,7 @@ body {
   right: 0;
   background: none;
   border-radius: 2.75rem;
-  border: 1px solid #e1e1e1;
-  transition: transform 100ms ease-out 0s;
-  will-change: transform;
-  /* perhaps the outline makes a difference w/ firefox transition property, perhaps it does not*/
-  /* outline: 1px solid transparent; */
+  transition: box-shadow 100ms ease-out 0s;
 }
 .rbc-layers {
   width: 100%;
@@ -118,7 +109,6 @@ img {
   bottom: 0;
   right: 0;
   transition: transform 100ms ease-out 0s;
-  will-change: transform;
 }
 .rbc-layer-01 {
   width: 100%;
@@ -131,7 +121,6 @@ img {
   color: #ffffff;
   z-index: 1;
   transition: transform 100ms ease-out 0s;
-  will-change: transform;
 }
 .text-wrapper {
   display: flex;
@@ -152,7 +141,6 @@ img {
   bottom: 0;
   right: 0;
   transition: transform 100ms ease-out 0s;
-  will-change: background;
 }
 
 /* ------------------------------------- RBC CARD TEXT & ICONS ------------------------------------- */
