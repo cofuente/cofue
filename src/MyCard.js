@@ -3,7 +3,7 @@ import ReactBusinessCard from './ReactBusinessCard'
 import cardStock from './card.png'
 import CardContent from './CardContent'
 
-export class MyRBC extends PureComponent {
+export default class MyCard extends PureComponent {
   render() {
     const { width, height } = this.props
     return (
@@ -16,5 +16,3 @@ export class MyRBC extends PureComponent {
     )
   }
 }
-
-export default MyRBC

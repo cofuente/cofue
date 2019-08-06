@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export class FloatingCard extends Component {
+export default class ReactBusinessCard extends Component {
   static calculateDistance(bounds, offsetX, offsetY) {
     const distanceX = (offsetX - bounds.width / 2) ** 2
     const distanceY = (offsetY - bounds.height / 2) ** 2
@@ -56,7 +56,7 @@ export class FloatingCard extends Component {
     const angleRad = Math.atan2(deltaY, deltaX)
     const angleRaw = (angleRad * 180) / Math.PI - 90
     const angleDeg = angleRaw < 0 ? angleRaw + 360 : angleRaw
-    const distanceFromCenter = FloatingCard.calculateDistance(
+    const distanceFromCenter = ReactBusinessCard.calculateDistance(
       bounds,
       nativeEvent.offsetX,
       nativeEvent.offsetY
@@ -109,7 +109,9 @@ export class FloatingCard extends Component {
       const layerClassName = `rbc-layer-0${key}`
       const rotateXAlt = Math.floor(rotateX / num)
       const rotateYAlt = Math.floor(rotateY / num)
-      let layerSpecificTransforms = genericTransforms // for now the image layer gets generic transforms until I can figure out better transform math that works
+      // for now the image layer gets generic transforms until
+      // I can figure out better transform math that works
+      let layerSpecificTransforms = genericTransforms
       let childLayerAlt = childLayer
       if (childLayer.ref === 'text') {
         childLayerAlt = childLayer.props.children
@@ -196,5 +198,3 @@ export class FloatingCard extends Component {
     )
   }
 }
-
-export default FloatingCard

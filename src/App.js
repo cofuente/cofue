@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { MyRBC } from './MyRBC'
+import MyCard from './MyCard'
 import { TextConsole } from './TextConsole'
 import './App.css'
 
@@ -30,7 +30,7 @@ export default class App extends PureComponent {
     return (
       <div id='super'>
         <TextConsole />
-        <MyRBC width={cardWidth} height={cardHeight} />
+        <MyCard width={cardWidth} height={cardHeight} />
       </div>
     )
   }
