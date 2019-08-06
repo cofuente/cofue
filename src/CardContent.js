@@ -27,7 +27,7 @@ export default class CardContent extends PureComponent {
       fontSize: `${proportionedFontSize}px`
     }
     return (
-      <div ref='text' id='constaj'>
+      <div ref='text'>
         <div className='text-wrapper' style={textWrapStyle}>
           <h1 className='full_name'>
             Chiara
