@@ -24,6 +24,11 @@
     "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
+  "eslintIgnore": [
+    "src/registerServiceWorker.js",
+    "build/*",
+    "!build/index.js"
+  ],
   "browserslist": [
     ">0.2%",
     "not dead",
