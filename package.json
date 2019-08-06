@@ -15,7 +15,7 @@
     "react-scripts": "^3.0.1"
   },
   "scripts": {
-    "lint": "eslint --fix . && echo 'Lint complete.'",
+    "lint": "eslint .",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "build:local": "npm run-script build && serve -s build",
