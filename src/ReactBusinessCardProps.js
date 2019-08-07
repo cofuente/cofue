@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import CardContent from './CardContent'
 
-export default class ReactBusinessCard extends Component {
+export default class ReactBusinessCardProps extends Component {
   static calculateDistance(bounds, offsetX, offsetY) {
     const distanceX = (offsetX - bounds.width / 2) ** 2
     const distanceY = (offsetY - bounds.height / 2) ** 2
@@ -18,7 +18,7 @@ export default class ReactBusinessCard extends Component {
 
   constructor(props) {
     super(props)
-    const { width, height } = this.props
+    const { width, height, settings } = this.props
     this.state = {
       rotateX: 0,
       rotateY: 0,
@@ -29,6 +29,7 @@ export default class ReactBusinessCard extends Component {
       alpha: 0,
       width,
       height,
+      settings
     }
 
     this.calculateAlphaFromCenter = this.calculateAlphaFromCenter.bind(this)
@@ -40,6 +41,7 @@ export default class ReactBusinessCard extends Component {
   calculateAlphaFromCenter(current) {
     const { width, height } = this.state
     const max = Math.max(width, height)
+    // Alpha channel modifer: 1.01 -> 1.1~  from config.alpha but currently at .4????
     return (current / max) * 0.4
   }
 
@@ -57,7 +59,17 @@ export default class ReactBusinessCard extends Component {
 
   handleMouseMove(e) {
     const { pageX, pageY, nativeEvent } = e
-    const { width, height } = this.state
+    const { width, height, settings } = this.state
+
+    const {
+      offsetBuffer,
+      aspect,
+      xRotation,
+      yRotation,
+      shadowMotion,
+      shadowSize,
+      scale
+    } = settings
     const { scrollTop, scrollLeft } = document.body
 
     const bounds = this.wrapper.getBoundingClientRect()
@@ -65,25 +77,23 @@ export default class ReactBusinessCard extends Component {
     const centerX = width / 2
     const centerY = height / 2
 
-    const offsetX = 0.52 - (pageX - bounds.left - scrollLeft) / width
-    const offsetY = 0.52 - (pageY - bounds.top - scrollTop) / height
+    const offsetX = offsetBuffer - (pageX - bounds.left - scrollLeft) / width
+    const offsetY = offsetBuffer - (pageY - bounds.top - scrollTop) / height
 
     const deltaX = pageX - bounds.left - scrollLeft - centerX
     const deltaY = pageY - bounds.top - scrollTop - centerY
 
-    const widthMultiplier = 320 / width
-    const rotateX = (deltaY - offsetY) * (0.08 * widthMultiplier)
-    const rotateY = (offsetX - deltaX) * (0.04 * widthMultiplier)
+    const widthMultiplier = aspect / width
+    const rotateX = (deltaY - offsetY) * (xRotation * widthMultiplier)
+    const rotateY = (offsetX - deltaX) * (yRotation * widthMultiplier)
+    const angle = ReactBusinessCardProps.convertRadToDeg(deltaY, deltaX)
 
-    const angle = ReactBusinessCard.convertRadToDeg(deltaY, deltaX)
-
-    const distanceFromCenter = ReactBusinessCard.calculateDistance(
+    const distanceFromCenter = ReactBusinessCardProps.calculateDistance(
       bounds,
       nativeEvent.offsetX,
       nativeEvent.offsetY
     )
-    const shadowMovement = centerY * 0.25
-    const shadowSize = 120
+    const shadowMovement = centerY * shadowMotion
     const alpha = this.calculateAlphaFromCenter(distanceFromCenter)
 
     this.setState({
@@ -91,7 +101,7 @@ export default class ReactBusinessCard extends Component {
       rotateY,
       shadowMovement,
       shadowSize,
-      scale: 1.03,
+      scale,
       angle,
       alpha
     })
@@ -190,7 +200,7 @@ export default class ReactBusinessCard extends Component {
   }
 }
 
-ReactBusinessCard.propTypes = {
+ReactBusinessCardProps.propTypes = {
   width: PropTypes.number.isRequired,
   height: PropTypes.number.isRequired,
   children: PropTypes.arrayOf(
