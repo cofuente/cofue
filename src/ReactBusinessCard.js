@@ -18,7 +18,7 @@ export default class ReactBusinessCard extends Component {
 
   constructor(props) {
     super(props)
-    const { width, height } = this.props
+    const { width, height, settings } = this.props
     this.state = {
       rotateX: 0,
       rotateY: 0,
@@ -28,7 +28,8 @@ export default class ReactBusinessCard extends Component {
       angle: 0,
       alpha: 0,
       width,
-      height
+      height,
+      settings
     }
 
     this.calculateAlphaFromCenter = this.calculateAlphaFromCenter.bind(this)
@@ -58,7 +59,17 @@ export default class ReactBusinessCard extends Component {
 
   handleMouseMove(e) {
     const { pageX, pageY, nativeEvent } = e
-    const { width, height } = this.state
+    const { width, height, settings } = this.state
+
+    const {
+      offsetBuffer,
+      aspect,
+      xRotation,
+      yRotation,
+      shadowMotion,
+      shadowSize,
+      scale
+    } = settings
     const { scrollTop, scrollLeft } = document.body
 
     const bounds = this.wrapper.getBoundingClientRect()
@@ -66,15 +77,15 @@ export default class ReactBusinessCard extends Component {
     const centerX = width / 2
     const centerY = height / 2
 
-    const offsetX = 0.52 - (pageX - bounds.left - scrollLeft) / width // make a prop called offset buffer
-    const offsetY = 0.52 - (pageY - bounds.top - scrollTop) / height
+    const offsetX = offsetBuffer - (pageX - bounds.left - scrollLeft) / width
+    const offsetY = offsetBuffer - (pageY - bounds.top - scrollTop) / height
 
     const deltaX = pageX - bounds.left - scrollLeft - centerX
     const deltaY = pageY - bounds.top - scrollTop - centerY
 
-    const widthMultiplier = 320 / width // ~.457 // make a prop called width multiplier
-    const rotateX = (deltaY - offsetY) * (0.08 * widthMultiplier) // make a prop called horizontal rotation multiplier
-    const rotateY = (offsetX - deltaX) * (0.04 * widthMultiplier) // make a prop called vertical rotation multiplier
+    const widthMultiplier = aspect / width // ~.457
+    const rotateX = (deltaY - offsetY) * (xRotation * widthMultiplier) // make a prop called horizontal rotation iplier
+    const rotateY = (offsetX - deltaX) * (yRotation * widthMultiplier) // make a prop called vertical rotation iplier
 
     const angle = ReactBusinessCard.convertRadToDeg(deltaY, deltaX)
 
@@ -83,8 +94,7 @@ export default class ReactBusinessCard extends Component {
       nativeEvent.offsetX,
       nativeEvent.offsetY
     )
-    const shadowMovement = centerY * 0.25 // make a prop called shadow movement multiplier
-    const shadowSize = 120 // make a prop
+    const shadowMovement = centerY * shadowMotion // make a prop called shadow movement iplier
     const alpha = this.calculateAlphaFromCenter(distanceFromCenter)
 
     this.setState({
@@ -92,7 +102,7 @@ export default class ReactBusinessCard extends Component {
       rotateY,
       shadowMovement,
       shadowSize,
-      scale: 1.03, // How large to scale the item once hovered: 1.00 -> 1.10~
+      scale,
       angle,
       alpha
     })
