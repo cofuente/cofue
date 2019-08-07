@@ -3,15 +3,16 @@ import PropTypes from 'prop-types'
 import ReactBusinessCard from './ReactBusinessCard'
 import cardStock from './card.png'
 import CardContent from './CardContent'
+import resumeUri from './resume.pdf'
 
 const cardInfo = {
   firstName: 'Chiara',
   lastName: 'Marcial Martínez',
   title: 'full stack software engineer',
   email: 'contact@cofuente.io',
-  resumeFilename: 'chiaramarcialmartínez.pdf',
-  linkedInUrl: 'https://www.linkedin.com/in/cofuente/',
   githubUrl: 'https://github.com/cofuente',
+  resume: resumeUri,
+  linkedInUrl: 'https://www.linkedin.com/in/cofuente/',
 }
 
 export default class MyCard extends PureComponent {

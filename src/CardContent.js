@@ -1,11 +1,12 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { GithubIcon, LinkedinIcon, ResumeIcon } from './Icons'
-import cwd from './cwd.pdf'
 
-const downloadResume = (uri, name) => {
+const downloadResume = (uri, first, last) => {
+  const noSpaces = string => string.replace(/\s+/g, '')
+  const fileName = `${noSpaces(first).toLowerCase() + noSpaces(last).toLowerCase()}.pdf`
   const link = document.createElement('a')
-  link.download = name
+  link.download = fileName
   link.href = uri
   document.body.appendChild(link)
   link.click()
@@ -26,7 +27,7 @@ export default class CardContent extends PureComponent {
       lastName,
       title,
       email,
-      resumeFilename,
+      resume,
       linkedInUrl,
       githubUrl,
     } = cardInfo
@@ -46,7 +47,7 @@ export default class CardContent extends PureComponent {
             <button type='button' className='link_button' onClick={() => window.open(`${githubUrl}`)} aria-label='Check out my work on GitHub!'>
               <GithubIcon className='item' />
             </button>
-            <button type='button' className='link_button' onClick={() => downloadResume(cwd, `${resumeFilename}`)} aria-label='Click here to download my résumé'>
+            <button type='button' className='link_button' onClick={() => downloadResume(resume, firstName, lastName)} aria-label='Click here to download my résumé'>
               <ResumeIcon className='item' />
             </button>
             <button type='button' className='link_button' onClick={() => window.open(`${linkedInUrl}`)} aria-label={'I\'m on LinkedIn too.'}>
@@ -67,8 +68,8 @@ CardContent.propTypes = {
     lastName: PropTypes.string,
     title: PropTypes.string,
     email: PropTypes.string,
-    resumeFilename: PropTypes.string,
-    linkedInUrl: PropTypes.string,
     githubUrl: PropTypes.string,
+    resume: PropTypes.string,
+    linkedInUrl: PropTypes.string
   }).isRequired
 }
