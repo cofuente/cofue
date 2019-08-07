@@ -123,8 +123,7 @@ export default class ReactBusinessCard extends Component {
           MsTransform: `perspective(1000px) scale3d(${scale}, ${scale}, ${scale}) rotateX(${rotateX}) rotateY(${rotateY}deg)`,
           OTransform: `perspective(1000px) scale3d(${scale}, ${scale}, ${scale}) rotateX(${rotateX}) rotateY(${rotateY}deg)`,
           transform: `perspective(1000px) scale3d(${scale}, ${scale}, ${scale}) rotateX(${rotateX}) rotateY(${rotateY}deg)`,
-          textShadow: `${rotateYAlt * 0.5}px ${rotateXAlt
-            * 0.5}px 10px rgba(0, 0, 0, 0.3)`
+          textShadow: `${rotateYAlt * 0.5}px ${rotateXAlt * 0.5}px 10px rgba(0, 0, 0, 0.3)`
         }
       }
       return (
@@ -159,28 +158,22 @@ export default class ReactBusinessCard extends Component {
       OTransform: `perspective(1000px) scale3d(${scale}, ${scale}, ${scale}) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
       transform: `perspective(1000px) scale3d(${scale}, ${scale}, ${scale}) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
     }
-    const rbcWrapperStyle = Object.assign(
-      {},
+    const rbcWrapperStyle = Object.assign({},
       {
         width,
         height
       },
-      genericTransforms
-    )
-    const shadowStyle = Object.assign(
-      {},
+      genericTransforms)
+    const shadowStyle = Object.assign({},
       {
         boxShadow: `0px ${shadowMovement}px ${shadowSize}px rgba(0, 0, 0, 0.6)`
       },
-      genericTransforms
-    )
-    const lightingStyle = Object.assign(
-      {},
+      genericTransforms)
+    const lightingStyle = Object.assign({},
       {
         backgroundImage: `linear-gradient(${angle}deg, rgba(255,255,255, ${alpha}) 0%, rgba(255,255,255,0) 40%)`
       },
-      genericTransforms
-    )
+      genericTransforms)
     return (
       <div className='rbc-outer'>
         <div
