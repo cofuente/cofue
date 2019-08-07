@@ -83,10 +83,9 @@ export default class ReactBusinessCard extends Component {
     const deltaX = pageX - bounds.left - scrollLeft - centerX
     const deltaY = pageY - bounds.top - scrollTop - centerY
 
-    const widthMultiplier = aspect / width // ~.457
-    const rotateX = (deltaY - offsetY) * (xRotation * widthMultiplier) // make a prop called horizontal rotation iplier
-    const rotateY = (offsetX - deltaX) * (yRotation * widthMultiplier) // make a prop called vertical rotation iplier
-
+    const widthMultiplier = aspect / width
+    const rotateX = (deltaY - offsetY) * (xRotation * widthMultiplier)
+    const rotateY = (offsetX - deltaX) * (yRotation * widthMultiplier)
     const angle = ReactBusinessCard.convertRadToDeg(deltaY, deltaX)
 
     const distanceFromCenter = ReactBusinessCard.calculateDistance(
@@ -94,7 +93,7 @@ export default class ReactBusinessCard extends Component {
       nativeEvent.offsetX,
       nativeEvent.offsetY
     )
-    const shadowMovement = centerY * shadowMotion // make a prop called shadow movement iplier
+    const shadowMovement = centerY * shadowMotion
     const alpha = this.calculateAlphaFromCenter(distanceFromCenter)
 
     this.setState({

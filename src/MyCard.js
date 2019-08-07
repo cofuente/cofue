@@ -17,7 +17,7 @@ const cardInfo = {
 // settings will go back here, but for testing I'm just going to move it up temporarily
 const settings = {
   offsetBuffer: 0.52, // needs explanation
-  aspect: 320, // aspect multiplier
+  aspect: 320, // aspect multiplier // ~.457
   xRotation: 0.08, // rotation multiplier
   yRotation: 0.04, // rotation multiplier
   shadowMotion: 0.25, // shadow movement multiplier
