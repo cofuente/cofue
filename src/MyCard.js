@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 import ReactBusinessCard from './ReactBusinessCard'
 import cardStock from './card.png'
 import CardContent from './CardContent'
@@ -15,4 +16,9 @@ export default class MyCard extends PureComponent {
       </div>
     )
   }
+}
+
+MyCard.propTypes = {
+  width: PropTypes.number.isRequired,
+  height: PropTypes.number.isRequired,
 }

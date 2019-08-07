@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 import { GithubIcon, LinkedinIcon, ResumeIcon } from './Icons'
 import cwd from './cwd.pdf'
 
@@ -53,4 +54,9 @@ export default class CardContent extends PureComponent {
       </div>
     )
   }
+}
+
+CardContent.propTypes = {
+  width: PropTypes.number.isRequired,
+  height: PropTypes.number.isRequired,
 }
