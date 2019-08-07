@@ -9,6 +9,13 @@ export default class ReactBusinessCard extends Component {
     return Math.floor(Math.sqrt(distanceX + distanceY))
   }
 
+  static convertRadToDeg(deltaY, deltaX) {
+    const angleRad = Math.atan2(deltaY, deltaX)
+    const angleRaw = (angleRad * 180) / Math.PI - 90
+    const angleDeg = angleRaw < 0 ? angleRaw + 360 : angleRaw
+    return angleDeg
+  }
+
   constructor(props) {
     super(props)
     const { width, height } = this.props
@@ -24,9 +31,9 @@ export default class ReactBusinessCard extends Component {
       height
     }
 
-    this.handleMouseMove = this.handleMouseMove.bind(this)
-    this.handleMouseLeave = this.handleMouseLeave.bind(this)
     this.calculateAlphaFromCenter = this.calculateAlphaFromCenter.bind(this)
+    this.handleMouseLeave = this.handleMouseLeave.bind(this)
+    this.handleMouseMove = this.handleMouseMove.bind(this)
     this.renderCardContent = this.renderCardContent.bind(this)
   }
 
@@ -35,46 +42,6 @@ export default class ReactBusinessCard extends Component {
     const max = Math.max(width, height)
     // Alpha channel modifer: 1.01 -> 1.1~  from config.alpha but currently at .4????
     return (current / max) * 0.4
-  }
-
-  handleMouseMove(e) {
-    const { pageX } = e
-    const { pageY } = e
-    const { nativeEvent } = e
-    const { width } = this.state
-    const { height } = this.state
-    const { scrollTop } = document.body
-    const { scrollLeft } = document.body
-    const bounds = this.wrapper.getBoundingClientRect()
-    const centerX = width / 2
-    const centerY = height / 2
-    const widthMultiplier = 320 / width // ~.457
-    const offsetX = 0.52 - (pageX - bounds.left - scrollLeft) / width
-    const offsetY = 0.52 - (pageY - bounds.top - scrollTop) / height
-    const deltaX = pageX - bounds.left - scrollLeft - centerX
-    const deltaY = pageY - bounds.top - scrollTop - centerY
-    const rotateX = (deltaY - offsetY) * (0.08 * widthMultiplier)
-    const rotateY = (offsetX - deltaX) * (0.04 * widthMultiplier)
-    const angleRad = Math.atan2(deltaY, deltaX)
-    const angleRaw = (angleRad * 180) / Math.PI - 90
-    const angleDeg = angleRaw < 0 ? angleRaw + 360 : angleRaw
-    const distanceFromCenter = ReactBusinessCard.calculateDistance(
-      bounds,
-      nativeEvent.offsetX,
-      nativeEvent.offsetY
-    )
-    const shadowMovement = centerY * 0.25
-    const shadowSize = 120
-    const alpha = this.calculateAlphaFromCenter(distanceFromCenter)
-    this.setState({
-      rotateX,
-      rotateY,
-      shadowMovement,
-      shadowSize,
-      scale: 1.03, // How large to scale the item once hovered: 1.00 -> 1.10~
-      angle: angleDeg,
-      alpha
-    })
   }
 
   handleMouseLeave() {
@@ -89,6 +56,48 @@ export default class ReactBusinessCard extends Component {
     })
   }
 
+  handleMouseMove(e) {
+    const { pageX, pageY, nativeEvent } = e
+    const { width, height } = this.state
+    const { scrollTop, scrollLeft } = document.body
+
+    const bounds = this.wrapper.getBoundingClientRect()
+
+    const centerX = width / 2
+    const centerY = height / 2
+
+    const offsetX = 0.52 - (pageX - bounds.left - scrollLeft) / width // make a prop called offset buffer
+    const offsetY = 0.52 - (pageY - bounds.top - scrollTop) / height
+
+    const deltaX = pageX - bounds.left - scrollLeft - centerX
+    const deltaY = pageY - bounds.top - scrollTop - centerY
+
+    const widthMultiplier = 320 / width // ~.457 // make a prop called width multiplier
+    const rotateX = (deltaY - offsetY) * (0.08 * widthMultiplier) // make a prop called horizontal rotation multiplier
+    const rotateY = (offsetX - deltaX) * (0.04 * widthMultiplier) // make a prop called vertical rotation multiplier
+
+    const angle = ReactBusinessCard.convertRadToDeg(deltaY, deltaX)
+
+    const distanceFromCenter = ReactBusinessCard.calculateDistance(
+      bounds,
+      nativeEvent.offsetX,
+      nativeEvent.offsetY
+    )
+    const shadowMovement = centerY * 0.25 // make a prop called shadow movement multiplier
+    const shadowSize = 120 // make a prop
+    const alpha = this.calculateAlphaFromCenter(distanceFromCenter)
+
+    this.setState({
+      rotateX,
+      rotateY,
+      shadowMovement,
+      shadowSize,
+      scale: 1.03, // How large to scale the item once hovered: 1.00 -> 1.10~
+      angle,
+      alpha
+    })
+  }
+
   renderCardContent(children) {
     const { scale, rotateX, rotateY } = this.state
     const genericTransforms = {
@@ -97,14 +106,6 @@ export default class ReactBusinessCard extends Component {
       MsTransform: `perspective(1000px) scale3d(${scale}, ${scale}, ${scale}) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
       OTransform: `perspective(1000px) scale3d(${scale}, ${scale}, ${scale}) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
       transform: `perspective(1000px) scale3d(${scale}, ${scale}, ${scale}) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
-    }
-    if (!Array.isArray(children)) {
-      // in case of only one child, likely just the card img
-      return (
-        <div style={genericTransforms} className='rbc-layer-solo'>
-          {children}
-        </div>
-      )
     }
     return children.map((childLayer, key) => {
       const num = key + 1
@@ -165,14 +166,10 @@ export default class ReactBusinessCard extends Component {
       },
       genericTransforms)
     const shadowStyle = Object.assign({},
-      {
-        boxShadow: `0px ${shadowMovement}px ${shadowSize}px rgba(0, 0, 0, 0.6)`
-      },
+      { boxShadow: `0px ${shadowMovement}px ${shadowSize}px rgba(0, 0, 0, 0.6)` },
       genericTransforms)
     const lightingStyle = Object.assign({},
-      {
-        backgroundImage: `linear-gradient(${angle}deg, rgba(255,255,255, ${alpha}) 0%, rgba(255,255,255,0) 40%)`
-      },
+      { backgroundImage: `linear-gradient(${angle}deg, rgba(255,255,255, ${alpha}) 0%, rgba(255,255,255,0) 40%)` },
       genericTransforms)
     return (
       <div className='rbc-outer'>

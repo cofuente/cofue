@@ -4,6 +4,16 @@ import ReactBusinessCard from './ReactBusinessCard'
 import cardStock from './card.png'
 import CardContent from './CardContent'
 
+const cardInfo = {
+  firstName: 'Chiara',
+  lastName: 'Marcial Martínez',
+  title: 'full stack software engineer',
+  email: 'contact@cofuente.io',
+  resumeFilename: 'chiaramarcialmartínez.pdf',
+  linkedInUrl: 'https://www.linkedin.com/in/cofuente/',
+  githubUrl: 'https://github.com/cofuente',
+}
+
 export default class MyCard extends PureComponent {
   render() {
     const { width, height } = this.props
@@ -11,7 +21,7 @@ export default class MyCard extends PureComponent {
       <div id='rbc'>
         <ReactBusinessCard width={width} height={height}>
           <img width={width} height={height} src={cardStock} alt='The lovely card stock I picked for this printing. Like it?' />
-          <CardContent width={width} height={height} />
+          <CardContent width={width} height={height} cardInfo={cardInfo} />
         </ReactBusinessCard>
       </div>
     )
