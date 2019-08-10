@@ -32,7 +32,7 @@ export default class CardContent extends PureComponent {
       githubUrl,
     } = cardInfo
     return (
-      <div ref='text'>
+      <div>
         <div className='text-wrapper' style={textWrapStyle}>
           <h1 className='full_name'>
             {firstName}
