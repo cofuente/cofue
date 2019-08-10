@@ -16,6 +16,16 @@ export default class ReactBusinessCard extends Component {
     return angleDeg
   }
 
+  static getDerivedStateFromProps(props, state) {
+    if (props.width !== state.width || props.height !== state.height) {
+      return {
+        width: props.width,
+        height: props.height
+      }
+    }
+    return null
+  }
+
   constructor(props) {
     super(props)
     const { width, height } = this.props
