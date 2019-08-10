@@ -3,14 +3,14 @@ import MyCard from './MyCard'
 import { TextConsole } from './TextConsole'
 import './App.css'
 
+let cardHeight
+let cardWidth
 export default class App extends PureComponent {
-  render() {
+  static updateDimensions() {
     const windowHeight = window.innerHeight
     const windowWidth = window.innerWidth
     const orientation = windowWidth > windowHeight ? 'landscape' : 'portrait'
     const aspectRatio = windowWidth / windowHeight
-    let cardHeight
-    let cardWidth
     if (orientation === 'portrait') {
       cardWidth = windowWidth < 750 ? windowWidth * 0.9 : 700
       cardHeight = cardWidth < 700 ? ((cardWidth * 4) / 7) : 400
@@ -27,6 +27,10 @@ export default class App extends PureComponent {
         cardHeight = (cardWidth * 4) / 7
       }
     }
+  }
+
+  render() {
+    App.updateDimensions()
     return (
       <div id='super'>
         <TextConsole />
