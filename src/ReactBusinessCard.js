@@ -109,8 +109,6 @@ export default class ReactBusinessCard extends Component {
     return children.map((childLayer, key) => {
       const num = key + 1
       const layerClassName = `rbc-layer-0${key}`
-      // for now the image layer gets generic transforms until
-      // I can figure out better transform math that works
       const layerSpecificTransforms = genericTransforms
       const childLayerAlt = childLayer
       return (
