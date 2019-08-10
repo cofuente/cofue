@@ -109,23 +109,10 @@ export default class ReactBusinessCard extends Component {
     return children.map((childLayer, key) => {
       const num = key + 1
       const layerClassName = `rbc-layer-0${key}`
-      const rotateXAlt = Math.floor(rotateX / num)
-      const rotateYAlt = Math.floor(rotateY / num)
       // for now the image layer gets generic transforms until
       // I can figure out better transform math that works
-      let layerSpecificTransforms = genericTransforms
-      let childLayerAlt = childLayer
-      if (childLayer.ref === 'text') {
-        childLayerAlt = childLayer.props.children
-        layerSpecificTransforms = {
-          WebkitTransform: `perspective(1000px) scale3d(${scale}, ${scale}, ${scale}) rotateX(${rotateX}) rotateY(${rotateY}deg)`,
-          MozTransform: `perspective(1000px) scale3d(${scale}, ${scale}, ${scale}) rotateX(${rotateX}) rotateY(${rotateY}deg)`,
-          MsTransform: `perspective(1000px) scale3d(${scale}, ${scale}, ${scale}) rotateX(${rotateX}) rotateY(${rotateY}deg)`,
-          OTransform: `perspective(1000px) scale3d(${scale}, ${scale}, ${scale}) rotateX(${rotateX}) rotateY(${rotateY}deg)`,
-          transform: `perspective(1000px) scale3d(${scale}, ${scale}, ${scale}) rotateX(${rotateX}) rotateY(${rotateY}deg)`,
-          textShadow: `${rotateYAlt * 0.5}px ${rotateXAlt * 0.5}px 10px rgba(0, 0, 0, 0.3)`
-        }
-      }
+      const layerSpecificTransforms = genericTransforms
+      const childLayerAlt = childLayer
       return (
         <div
           style={layerSpecificTransforms}
