@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import CardContent from './CardContent'
+import './ReactBusinessCard.css'
 
 export default class ReactBusinessCard extends Component {
   static calculateDistance(bounds, offsetX, offsetY) {

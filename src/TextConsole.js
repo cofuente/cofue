@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import './TextConsole.css'
 
 export class TextConsole extends PureComponent {
   render() {
