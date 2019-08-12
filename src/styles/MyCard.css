@@ -9,6 +9,7 @@
   -moz-animation-delay: 7.2s;
   -o-animation-delay: 7.2s;
   animation-delay: 7.2s; */
+  display: none;
 }
 
 img {

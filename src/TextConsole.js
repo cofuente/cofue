@@ -1,15 +1,29 @@
 import React, { PureComponent } from 'react'
+import Typing from 'react-typing-animation'
 import './styles/TextConsole.css'
 
 export class TextConsole extends PureComponent {
   render() {
     return (
-      <div className='css-typing' id='intro'>
-        <h1>Hello, stranger.</h1>
-        <h1>Welcome to my page.</h1>
-        <h1>In all likelihood, I gave you the link myself.</h1>
-        <h1>So here, take my card.</h1>
-        <h1> -Go on, take it.</h1>
+      <div id='console-container'>
+        <Typing className='console' speed={60}>
+          <span>Hey there, stranger.</span>
+          <Typing.Delay ms={800} />
+          <br />
+          <Typing.Speed ms={300} />
+          <span>Umm... What&apos;s up? </span>
+          <Typing.Speed ms={100} />
+          <span>You recruiting?</span>
+          <Typing.Delay ms={400} />
+          <br />
+          <span>If you are, I can hook you up with the deets of this engineer I know.</span>
+          <br />
+          <span>On the come up.</span>
+          <span>Highly recommend.</span>
+          <br />
+          <span>Here, take her card.</span>
+          <span> -Go on, take it.</span>
+        </Typing>
       </div>
     )
   }
