@@ -3,7 +3,7 @@ import useForceUpdate from 'use-force-update'
 import EventListener from 'react-event-listener'
 import MyCard from './MyCard'
 import { TextConsole } from './TextConsole'
-import './App.css'
+import './styles/App.css'
 
 const App = () => {
   const forceUpdate = useForceUpdate()
