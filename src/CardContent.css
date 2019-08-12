@@ -54,7 +54,7 @@
 }
 
 .link_button {
-  background: none !important;
+  background: none;
   border: none;
   align-items: center;
   cursor: pointer;
