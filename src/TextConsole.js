@@ -10,19 +10,23 @@ export class TextConsole extends PureComponent {
           <span>Hey there, stranger.</span>
           <Typing.Delay ms={800} />
           <br />
-          <Typing.Speed ms={300} />
-          <span>Umm... What&apos;s up? </span>
-          <Typing.Speed ms={100} />
-          <span>You recruiting?</span>
-          <Typing.Delay ms={400} />
+          <Typing.Speed ms={80} />
+          <span>How&apos;s life?</span>
+          <Typing.Delay ms={1000} />
           <br />
-          <span>If you are, I can hook you up with the deets of this engineer I know.</span>
+          <span>Doing well, I ho</span>
+          <Typing.Speed ms={600} />
+          <span>pe...</span>
+          <Typing.Delay ms={600} />
+          <Typing.Speed ms={80} />
           <br />
-          <span>On the come up.</span>
-          <span>Highly recommend.</span>
+          <span>Wanna actually tell me about it?</span>
+          <Typing.Delay ms={900} />
           <br />
-          <span>Here, take her card.</span>
-          <span> -Go on, take it.</span>
+          <Typing.Speed ms={80} />
+          <span>Cool! </span>
+          <span>Take my card.</span>
+          <Typing.Delay ms={1000} />
         </Typing>
       </div>
     )
