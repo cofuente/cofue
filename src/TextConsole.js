@@ -11,7 +11,8 @@ export class TextConsole extends PureComponent {
           <Typing.Delay ms={800} />
           <br />
           <Typing.Speed ms={80} />
-          <span>How&apos;s life?</span>
+          <span>How&apos;s life? </span>
+          <span role='img' aria-label='Seedling'>🌱</span>
           <Typing.Delay ms={1000} />
           <br />
           <span>Doing well, I ho</span>
