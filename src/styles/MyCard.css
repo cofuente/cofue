@@ -5,10 +5,10 @@
   -moz-animation: bounce-in-bottom 1.1s both;
   -o-animation: bounce-in-bottom 1.1s both;
   animation: bounce-in-bottom 1.1s both;
-  /* -webkit-animation-delay: 7.2s;
-  -moz-animation-delay: 7.2s;
-  -o-animation-delay: 7.2s;
-  animation-delay: 7.2s; */
+  -webkit-animation-delay: 17.6s;
+  -moz-animation-delay: 17.6s;
+  -o-animation-delay: 17.6s;
+  animation-delay: 17.6s;
 }
 
 img {
