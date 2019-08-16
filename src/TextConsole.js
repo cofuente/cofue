@@ -9,11 +9,11 @@ export class TextConsole extends PureComponent {
         <Typing className='console' speed={60}>
           <div className='line' id='line-1'>
             <span>Hey there, stranger.</span>
-            <Typing.Delay ms={800} />
+            <Typing.Delay ms={600} />
             <br />
           </div>
           <div className='line' id='line-2'>
-            <Typing.Speed ms={80} />
+            <Typing.Speed ms={70} />
             <span>How&apos;s life? </span>
             <span role='img' aria-label='Seedling'>&#127793;</span>
             <Typing.Delay ms={1000} />
@@ -29,14 +29,13 @@ export class TextConsole extends PureComponent {
           </div>
           <div className='line' id='line-4'>
             <span>Wanna actually tell me about it?</span>
-            <Typing.Delay ms={900} />
+            <Typing.Delay ms={600} />
             <br />
           </div>
           <div className='line' id='line-5'>
-            <Typing.Speed ms={80} />
+            <Typing.Speed ms={70} />
             <span>Cool! </span>
             <span>Take my card.</span>
-            <Typing.Delay ms={1000} />
           </div>
         </Typing>
       </div>
