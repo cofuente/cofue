@@ -1,20 +1,86 @@
 #console-container {
-  display: none;
   width: 100%;
   height: 100%;
   position: absolute;
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
+  display: block;
+  font-size: calc(18px + (120 - 18) * ((100vw - 300px) / (2400 - 300)));
+  animation: slide-out-left 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) 17s both;
 }
 
 .console {
-  margin: 5%;
-  /* height: calc(100%-120px); */
-  /* display: flex; */
-  /* flex-flow: column wrap; */
-  /* justify-content: center; */
-  /* align-items: flex-start; */
+  margin: 10vh 5vw 10vh 5vw;
+}
+
+.line {
   text-align: left;
-  font-size: 30px;
+}
+
+#line-1 {
+  margin-top: 10vh;
+  margin-bottom: calc((70vh - 6em)/4);
+}
+
+#line-2 {
+  margin-bottom: calc((70vh - 6em)/4);
+}
+
+#line-3 {
+  margin-bottom: calc((70vh - 6em)/4);
+}
+
+#line-4 {
+  margin-bottom: calc((70vh - 6em)/4);
+}
+
+#line-5 {
+  margin-bottom: 5vh;
+}
+
+/* Exit Animation */
+@-webkit-keyframes slide-out-left {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes slide-out-left {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+}
+
+@-o-keyframes slide-out-left {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-out-left {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
 }
