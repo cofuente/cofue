@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.dd48f8dc.chunk.css",
+    "main.css": "/static/css/main.1cde2322.chunk.css",
     "main.js": "/static/js/main.86e95668.chunk.js",
     "main.js.map": "/static/js/main.86e95668.chunk.js.map",
     "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
@@ -8,9 +8,9 @@
     "static/js/2.695f8dd0.chunk.js": "/static/js/2.695f8dd0.chunk.js",
     "static/js/2.695f8dd0.chunk.js.map": "/static/js/2.695f8dd0.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.8b0fa4f7324a2fa8431f884112e51615.js": "/precache-manifest.8b0fa4f7324a2fa8431f884112e51615.js",
+    "precache-manifest.5d98054de870937405c42acbd4a06d07.js": "/precache-manifest.5d98054de870937405c42acbd4a06d07.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.dd48f8dc.chunk.css.map": "/static/css/main.dd48f8dc.chunk.css.map",
+    "static/css/main.1cde2322.chunk.css.map": "/static/css/main.1cde2322.chunk.css.map",
     "static/media/card.png": "/static/media/card.cad8bdb1.png",
     "static/media/resume.pdf": "/static/media/resume.1b45953d.pdf"
   }
