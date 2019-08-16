@@ -4,7 +4,7 @@
   position: absolute;
   display: block;
   font-size: calc(18px + (120 - 18) * ((100vw - 300px) / (2400 - 300)));
-  animation: slide-out-left 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) 17s both;
+  animation: slide-out-left 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) 18s both;
 }
 
 .console {
