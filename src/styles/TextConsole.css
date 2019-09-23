@@ -4,11 +4,16 @@
   position: absolute;
   display: block;
   font-size: calc(18px + (120 - 18) * ((100vw - 300px) / (2400 - 300)));
-  animation: slide-out-left 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) 17.8s both;
+  animation: slide-out-left 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) 8s both;
+  -webkit-animation: slide-out-left 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) 8s both;
+  -moz-animation: slide-out-left 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) 8s both;
+  -o-animation: slide-out-left 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) 8s both;
 }
 
 .console {
-  margin: 10vh 5vw 10vh 5vw;
+  margin: 20vh 5vw 20vh 5vw;
+  width: 90%;
+  height: 60%;
 }
 
 .line {
@@ -17,23 +22,16 @@
 
 #line-1 {
   margin-top: 10vh;
-  margin-bottom: calc((70vh - 6em)/4);
+  padding-bottom: calc((40vh - 3em)/2);
 }
 
 #line-2 {
-  margin-bottom: calc((70vh - 6em)/4);
+  margin-top: 0;
+  padding-bottom: calc((40vh - 3em)/2);
 }
 
 #line-3 {
-  margin-bottom: calc((70vh - 6em)/4);
-}
-
-#line-4 {
-  margin-bottom: calc((70vh - 6em)/4);
-}
-
-#line-5 {
-  margin-bottom: 5vh;
+  margin-bottom: 10vh;
 }
 
 /* Exit Animation */
