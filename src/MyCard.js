@@ -4,7 +4,7 @@ import ReactBusinessCard from './ReactBusinessCard'
 import cardStock from './card.png'
 import CardContent from './CardContent'
 import resumeUri from './resume.pdf'
-import './styles/MyCard.css'
+import './MyCard/styles.css'
 
 const cardInfo = {
   firstName: 'Chiara',

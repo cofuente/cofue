@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { GithubIcon, LinkedinIcon, ResumeIcon } from './Icons'
-import './styles/CardContent.css'
+import { GithubIcon, LinkedinIcon, ResumeIcon } from './ReactBusinessCard/Icons'
+import './ReactBusinessCard/CardLayout/styles.css'
 
 const downloadResume = (uri, first, last) => {
   const noSpaces = string => string.replace(/\s+/g, '')
