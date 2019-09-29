@@ -19,6 +19,9 @@ const cardInfo = {
 }
 
 const MyCard = () => {
+  // May seem like an unnecessary function reassignment below,
+  // but this is just to keep in line with react hooks rules which
+  // checks for function scope where hooks are used.
   const forceUpdate = useForceUpdate()
   const handleResize = () => {
     forceUpdate()
