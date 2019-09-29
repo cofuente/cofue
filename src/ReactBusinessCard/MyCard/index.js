@@ -8,16 +8,15 @@ import * as userInfo from '../../cardAssets/contactInfo.json'
 import './styles.css'
 import CardLayout from '../CardLayout'
 
-const cardInfo = Object.assign({
+const cardInfo = {
   resume: resumeUri,
-}, {
   firstName: userInfo.firstName,
   lastName: userInfo.lastName,
   title: userInfo.title,
   email: userInfo.email,
   githubUrl: userInfo.githubUrl,
   linkedInUrl: userInfo.linkedInUrl,
-})
+}
 
 const MyCard = () => {
   const forceUpdate = useForceUpdate()
