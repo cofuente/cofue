@@ -7,15 +7,15 @@ import './styles.css'
 import CardLayout from '../CardLayout'
 
 const MyCard = (props) => {
-  const { cardStock, resumeUri, userInfo } = props
-  const cardInfo = {
-    resume: resumeUri,
-    firstName: userInfo.firstName,
-    lastName: userInfo.lastName,
-    title: userInfo.title,
-    email: userInfo.email,
-    githubUrl: userInfo.githubUrl,
-    linkedInUrl: userInfo.linkedInUrl,
+  const { cardStock, resume, contactInfo } = props
+  const userInfo = {
+    resume,
+    firstName: contactInfo.firstName,
+    lastName: contactInfo.lastName,
+    title: contactInfo.title,
+    email: contactInfo.email,
+    githubUrl: contactInfo.githubUrl,
+    linkedInUrl: contactInfo.linkedInUrl,
   }
   // May seem like an unnecessary function reassignment below,
   // but this is just to keep in line with react hooks rules which
@@ -57,16 +57,16 @@ const MyCard = (props) => {
       />
       <ReactBusinessCard width={width} height={height}>
         <img width={width} height={height} src={cardStock} alt='The lovely card stock I picked for this printing. Like it?' />
-        <CardLayout width={width} height={height} cardInfo={cardInfo} />
+        <CardLayout width={width} height={height} userInfo={userInfo} />
       </ReactBusinessCard>
     </div>
   )
 }
 
 MyCard.propTypes = {
-  resumeUri: PropTypes.string.isRequired,
+  resume: PropTypes.string.isRequired,
   cardStock: PropTypes.string.isRequired,
-  userInfo: PropTypes.shape({
+  contactInfo: PropTypes.shape({
     firstName: PropTypes.string,
     lastName: PropTypes.string,
     title: PropTypes.string,

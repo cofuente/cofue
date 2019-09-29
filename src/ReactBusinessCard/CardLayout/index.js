@@ -16,7 +16,7 @@ const downloadResume = (uri, first, last) => {
 
 export default class CardLayout extends PureComponent {
   render() {
-    const { width, height, cardInfo } = this.props
+    const { width, height, userInfo } = this.props
     const proportionedFontSize = Math.round(width / 70) // will have to look into this...
     const textWrapStyle = {
       width: `${width}px`,
@@ -31,7 +31,7 @@ export default class CardLayout extends PureComponent {
       resume,
       linkedInUrl,
       githubUrl,
-    } = cardInfo
+    } = userInfo
     return (
       <div>
         <div className='text-wrapper' style={textWrapStyle}>
@@ -64,7 +64,7 @@ export default class CardLayout extends PureComponent {
 CardLayout.propTypes = {
   width: PropTypes.number.isRequired,
   height: PropTypes.number.isRequired,
-  cardInfo: PropTypes.shape({
+  userInfo: PropTypes.shape({
     firstName: PropTypes.string,
     lastName: PropTypes.string,
     title: PropTypes.string,
