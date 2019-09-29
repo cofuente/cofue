@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { GithubIcon, LinkedinIcon, ResumeIcon } from './Icons'
-import './styles/CardContent.css'
+import './styles.css'
 
 const downloadResume = (uri, first, last) => {
   const noSpaces = string => string.replace(/\s+/g, '')
@@ -14,9 +14,9 @@ const downloadResume = (uri, first, last) => {
   document.body.removeChild(link)
 }
 
-export default class CardContent extends PureComponent {
+export default class CardLayout extends PureComponent {
   render() {
-    const { width, height, cardInfo } = this.props
+    const { width, height, userInfo } = this.props
     const proportionedFontSize = Math.round(width / 70) // will have to look into this...
     const textWrapStyle = {
       width: `${width}px`,
@@ -31,7 +31,7 @@ export default class CardContent extends PureComponent {
       resume,
       linkedInUrl,
       githubUrl,
-    } = cardInfo
+    } = userInfo
     return (
       <div>
         <div className='text-wrapper' style={textWrapStyle}>
@@ -61,10 +61,10 @@ export default class CardContent extends PureComponent {
   }
 }
 
-CardContent.propTypes = {
+CardLayout.propTypes = {
   width: PropTypes.number.isRequired,
   height: PropTypes.number.isRequired,
-  cardInfo: PropTypes.shape({
+  userInfo: PropTypes.shape({
     firstName: PropTypes.string,
     lastName: PropTypes.string,
     title: PropTypes.string,

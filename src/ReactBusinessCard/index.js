@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import CardContent from './CardContent'
-import './styles/ReactBusinessCard.css'
+import CardLayout from './CardLayout'
+import './styles.css'
 
 export default class ReactBusinessCard extends Component {
   static calculateDistance(bounds, offsetX, offsetY) {
@@ -191,6 +191,6 @@ ReactBusinessCard.propTypes = {
   height: PropTypes.number.isRequired,
   children: PropTypes.arrayOf(
     PropTypes.element,
-    PropTypes.instanceOf(CardContent)
+    PropTypes.instanceOf(CardLayout)
   ).isRequired
 }

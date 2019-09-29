@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import Typing from 'react-typing-animation'
-import './styles/TextConsole.css'
+import './styles.css'
 
 export class TextConsole extends PureComponent {
   render() {
