@@ -8,17 +8,16 @@ import * as userInfo from '../../cardAssets/contactInfo.json'
 import './styles.css'
 import CardLayout from '../CardLayout'
 
-const cardInfo = {
-  resume: resumeUri,
-  firstName: userInfo.firstName,
-  lastName: userInfo.lastName,
-  title: userInfo.title,
-  email: userInfo.email,
-  githubUrl: userInfo.githubUrl,
-  linkedInUrl: userInfo.linkedInUrl,
-}
-
 const MyCard = () => {
+  const cardInfo = {
+    resume: resumeUri,
+    firstName: userInfo.firstName,
+    lastName: userInfo.lastName,
+    title: userInfo.title,
+    email: userInfo.email,
+    githubUrl: userInfo.githubUrl,
+    linkedInUrl: userInfo.linkedInUrl,
+  }
   // May seem like an unnecessary function reassignment below,
   // but this is just to keep in line with react hooks rules which
   // checks for function scope where hooks are used.
