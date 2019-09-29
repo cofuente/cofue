@@ -1,35 +1,66 @@
-import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
+import React from 'react'
+import useForceUpdate from 'use-force-update'
+import EventListener from 'react-event-listener'
 import ReactBusinessCard from './ReactBusinessCard'
-import cardStock from './card.png'
-import CardContent from './CardContent'
-import resumeUri from './resume.pdf'
+import cardStock from './MyCard/cardStock.jpg'
+import resumeUri from './MyCard/resume.pdf'
+import * as userInfo from './MyCard/contactInfo.json'
 import './MyCard/styles.css'
+import CardContent from './CardContent'
 
-const cardInfo = {
-  firstName: 'Chiara',
-  lastName: 'Marcial Martínez',
-  title: 'full stack software engineer',
-  email: 'contact@cofuente.io',
-  githubUrl: 'https://github.com/cofuente',
+const cardInfo = Object.assign({
   resume: resumeUri,
-  linkedInUrl: 'https://www.linkedin.com/in/cofuente/',
-}
-export default class MyCard extends PureComponent {
-  render() {
-    const { width, height } = this.props
-    return (
-      <div id='my-card'>
-        <ReactBusinessCard width={width} height={height}>
-          <img width={width} height={height} src={cardStock} alt='The lovely card stock I picked for this printing. Like it?' />
-          <CardContent width={width} height={height} cardInfo={cardInfo} />
-        </ReactBusinessCard>
-      </div>
-    )
+}, {
+  firstName: userInfo.firstName,
+  lastName: userInfo.lastName,
+  title: userInfo.title,
+  email: userInfo.email,
+  githubUrl: userInfo.githubUrl,
+  linkedInUrl: userInfo.linkedInUrl,
+})
+
+const MyCard = () => {
+  const forceUpdate = useForceUpdate()
+  const handleResize = () => {
+    forceUpdate()
   }
+  const handleOrientationChange = () => {
+    forceUpdate()
+  }
+  let width
+  let height
+  const { innerWidth, innerHeight } = window
+  const orientation = innerWidth > innerHeight ? 'landscape' : 'portrait'
+  const aspectRatio = innerWidth / innerHeight
+  if (orientation === 'portrait') {
+    width = innerWidth < 750 ? innerWidth * 0.9 : 700
+    height = width < 700 ? ((width * 4) / 7) : 400
+  }
+  if (orientation === 'landscape') {
+    if (innerHeight >= 700) {
+      width = 700
+      height = 400
+    } else if (aspectRatio >= 1.75) {
+      height = innerHeight * 0.9
+      width = height * 1.75
+    } else {
+      width = innerWidth * 0.9
+      height = (width * 4) / 7
+    }
+  }
+  return (
+    <div id='my-card'>
+      <EventListener
+        target='window'
+        onResize={handleResize}
+        onOrientationChange={handleOrientationChange}
+      />
+      <ReactBusinessCard width={width} height={height}>
+        <img width={width} height={height} src={cardStock} alt='The lovely card stock I picked for this printing. Like it?' />
+        <CardContent width={width} height={height} cardInfo={cardInfo} />
+      </ReactBusinessCard>
+    </div>
+  )
 }
 
-MyCard.propTypes = {
-  width: PropTypes.number.isRequired,
-  height: PropTypes.number.isRequired,
-}
+export default MyCard
