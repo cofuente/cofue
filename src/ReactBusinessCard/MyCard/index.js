@@ -3,8 +3,8 @@ import useForceUpdate from 'use-force-update'
 import EventListener from 'react-event-listener'
 import PropTypes from 'prop-types'
 import ReactBusinessCard from '../index'
-import './styles.css'
 import CardLayout from '../CardLayout'
+import './styles.css'
 
 const MyCard = (props) => {
   const { cardStock, resume, contactInfo } = props
