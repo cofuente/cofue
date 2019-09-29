@@ -1,12 +1,12 @@
 import React from 'react'
 import useForceUpdate from 'use-force-update'
 import EventListener from 'react-event-listener'
-import ReactBusinessCard from './ReactBusinessCard'
-import cardStock from './MyCard/cardStock.jpg'
-import resumeUri from './MyCard/resume.pdf'
-import * as userInfo from './MyCard/contactInfo.json'
-import './MyCard/styles.css'
-import CardContent from './CardContent'
+import ReactBusinessCard from '../index'
+import cardStock from '../../cardAssets/cardStock.jpg'
+import resumeUri from '../../cardAssets/resume.pdf'
+import * as userInfo from '../../cardAssets/contactInfo.json'
+import './styles.css'
+import CardLayout from '../CardLayout'
 
 const cardInfo = Object.assign({
   resume: resumeUri,
@@ -57,7 +57,7 @@ const MyCard = () => {
       />
       <ReactBusinessCard width={width} height={height}>
         <img width={width} height={height} src={cardStock} alt='The lovely card stock I picked for this printing. Like it?' />
-        <CardContent width={width} height={height} cardInfo={cardInfo} />
+        <CardLayout width={width} height={height} cardInfo={cardInfo} />
       </ReactBusinessCard>
     </div>
   )

@@ -1,7 +1,7 @@
 import React from 'react'
-import MyCard from './MyCard'
+import MyCard from './ReactBusinessCard/MyCard'
 import { TextConsole } from './TextConsole'
-import './styles/App.css'
+import './styles.css'
 
 const App = () => (
   <div id='super'>
