@@ -1,8 +1,8 @@
 import React from 'react'
 import MyCard from './ReactBusinessCard/MyCard'
-import cardStock from './cardAssets/cardStock.jpg'
-import resume from './cardAssets/resume.pdf'
-import contactInfo from './cardAssets/contactInfo.json'
+import cardStock from './assets/cardStock.jpg'
+import resume from './assets/resume.pdf'
+import contactInfo from './assets/contactInfo.json'
 import { TextConsole } from './TextConsole'
 import './styles.css'
 
