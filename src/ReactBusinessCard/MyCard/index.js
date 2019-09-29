@@ -1,14 +1,13 @@
 import React from 'react'
 import useForceUpdate from 'use-force-update'
 import EventListener from 'react-event-listener'
+import PropTypes from 'prop-types'
 import ReactBusinessCard from '../index'
-import cardStock from '../../cardAssets/cardStock.jpg'
-import resumeUri from '../../cardAssets/resume.pdf'
-import * as userInfo from '../../cardAssets/contactInfo.json'
 import './styles.css'
 import CardLayout from '../CardLayout'
 
-const MyCard = () => {
+const MyCard = (props) => {
+  const { cardStock, resumeUri, userInfo } = props
   const cardInfo = {
     resume: resumeUri,
     firstName: userInfo.firstName,
@@ -62,6 +61,20 @@ const MyCard = () => {
       </ReactBusinessCard>
     </div>
   )
+}
+
+MyCard.propTypes = {
+  resumeUri: PropTypes.string.isRequired,
+  cardStock: PropTypes.string.isRequired,
+  userInfo: PropTypes.shape({
+    firstName: PropTypes.string,
+    lastName: PropTypes.string,
+    title: PropTypes.string,
+    email: PropTypes.string,
+    githubUrl: PropTypes.string,
+    linkedInUrl: PropTypes.string
+  }).isRequired
+
 }
 
 export default MyCard
