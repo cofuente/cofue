@@ -18,12 +18,12 @@ export class TextConsole extends PureComponent {
           <div className='line' id='line-3'>
             <br />
             <span>-</span>
-            <span role='img' aria-label='Alien'>&#128126;</span>
+            <span role='img' aria-label='Alien' id='alien'> </span>
             <Typing.Speed ms={120} />
             <Typing.Delay ms={375} />
-            <span role='img' aria-label='Seedling'>&#127793;</span>
+            <span role='img' aria-label='Seedling' id='seedling'> </span>
             <Typing.Delay ms={375} />
-            <span role='img' aria-label='Red Heart'>&#10084;&#65039;</span>
+            <span role='img' aria-label='Red Heart' id='heart'> </span>
             <Typing.Delay ms={120000} />
           </div>
         </Typing>
