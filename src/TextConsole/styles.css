@@ -34,6 +34,19 @@
   margin-bottom: 10vh;
 }
 
+/* Emojis */
+#alien::before {
+  content: '👾'
+}
+
+#seedling::before {
+  content: '🌱'
+}
+
+#heart::before {
+  content: '❤️'
+}
+
 /* Exit Animation */
 @-webkit-keyframes slide-out-left {
   0% {
