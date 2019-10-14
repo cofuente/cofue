@@ -1,3 +1,4 @@
+/* eslint-disable */
 const slot = window["__sensor__"] = Symbol("__sensor__")
 let orientation = {}
 
