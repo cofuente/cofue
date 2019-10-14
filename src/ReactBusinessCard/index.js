@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import CardLayout from './CardLayout'
+import { AbsoluteOrientationSensor } from './sensors/absolute'
 import './styles.css'
 
 export default class ReactBusinessCard extends Component {
@@ -29,6 +30,7 @@ export default class ReactBusinessCard extends Component {
 
   constructor(props) {
     super(props)
+    this.sensor = new AbsoluteOrientationSensor({ frequency: 60 })
     const { width, height } = this.props
     this.state = {
       rotateX: 0,
@@ -108,6 +110,19 @@ export default class ReactBusinessCard extends Component {
     })
   }
 
+  initSensor () {
+    this.sensor.onreading = () => {
+      console.log(this.sensor.quaternion)
+    }
+
+    this.sensor.onerror = (event) => {
+      if (event.error.name === 'NotReadableError') {
+        console.log("Sensor is not available.")
+      }
+    }
+    this.sensor.start()
+  }
+
   renderCardContent(children) {
     const { scale, rotateX, rotateY } = this.state
     const genericTransforms = {
@@ -134,7 +149,8 @@ export default class ReactBusinessCard extends Component {
     })
   }
 
-  render() {
+  render () {
+    this.initSensor()
     const {
       scale,
       rotateX,
