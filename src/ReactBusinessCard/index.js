@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import CardLayout from './CardLayout'
-import { RelativeOrientationSensor } from './sensors/relative'
+import { AbsoluteOrientationSensor } from './sensors/absolute'
 import './styles.css'
 
 export default class ReactBusinessCard extends Component {
@@ -30,7 +30,7 @@ export default class ReactBusinessCard extends Component {
 
   constructor(props) {
     super(props)
-    this.sensor = new RelativeOrientationSensor({ frequency: 60 })
+    this.sensor = new AbsoluteOrientationSensor({ frequency: 60 })
     const { width, height } = this.props
     this.state = {
       rotateX: 0,
