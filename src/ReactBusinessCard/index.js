@@ -120,7 +120,7 @@ export default class ReactBusinessCard extends Component {
         console.log("Sensor is not available.")
       }
     }
-    this.sensor.start()
+    // this.sensor.start()
   }
 
   renderCardContent(children) {
