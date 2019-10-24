@@ -120,7 +120,7 @@ export default class ReactBusinessCard extends Component {
         console.log("Sensor is not available.")
       }
     }
-    // this.sensor.start()
+    this.sensor.start()
   }
 
   renderCardContent(children) {
@@ -150,7 +150,11 @@ export default class ReactBusinessCard extends Component {
   }
 
   render () {
-    this.initSensor()
+    if (AbsoluteOrientationSensor in window) {
+      this.initSensor()
+    } else {
+      console.log('AOS not supported')
+    }
     const {
       scale,
       rotateX,
