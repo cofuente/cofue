@@ -46,13 +46,13 @@ export default class CardLayout extends PureComponent {
           </p>
           <div className='link_buttons'>
             <button type='button' className='link_button' onClick={() => window.open(`${githubUrl}`)} aria-label='Check out my work on GitHub!'>
-              <GithubIcon className='item' id='ghi' />
+              <GithubIcon className='item' />
             </button>
             <button type='button' className='link_button' onClick={() => downloadResume(resume, firstName, lastName)} aria-label='Click here to download my résumé'>
               <ResumeIcon className='item' />
             </button>
             <button type='button' className='link_button' onClick={() => window.open(`${linkedInUrl}`)} aria-label={'I\'m on LinkedIn too.'}>
-              <LinkedinIcon className='item' id='lii' />
+              <LinkedinIcon className='item' />
             </button>
           </div>
         </div>
