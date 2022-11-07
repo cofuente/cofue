@@ -1,8 +1,9 @@
 {
   "name": "cofue",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": false,
   "homepage": "https://cofuente.io/",
+  "author": "Chiara Marcial Martínez <contact@cofuente.io> (https://github.com/cofuente)",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.4",
     "@fortawesome/free-brands-svg-icons": "^5.3.1",
